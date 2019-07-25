@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我要评价",
+  "usingComponents": {
+    "sunui-star": "/components/sunui-star/sunui-star"
+  }
+}

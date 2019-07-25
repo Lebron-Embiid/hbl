@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "添加车辆",
+  "usingComponents": {
+    "tki-float-keyboard": "/components/tki-float-keyboard/tki-float-keyboard"
+  }
+}

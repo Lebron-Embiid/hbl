@@ -1,0 +1,148 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "花伴里"
+			}
+		},
+		{
+			"path": "pages/person/person",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/find_shop/find_shop",
+			"style": {
+				"navigationBarTitleText": "找店"
+			}
+		},
+		{
+			"path": "pages/store/store",
+			"style": {
+				"navigationBarTitleText": "积分商城"
+			}
+		},
+		{
+			"path": "pages/ticket/ticket",
+			"style": {
+				"navigationBarTitleText": "卡券"
+			}
+		},
+		{
+			"path": "pages/my_order/my_order",
+			"style": {
+				"navigationBarTitleText": "我的订单"
+			}
+		},
+		{
+			"path": "pages/order_eval/order_eval",
+			"style": {
+				"navigationBarTitleText": "我要评价"
+			}
+		},
+		{
+			"path": "pages/quick_pay/quick_pay",
+			"style": {
+				"navigationBarTitleText": "快速买单"
+			}
+		},
+		{
+			"path": "pages/person_info/person_info",
+			"style": {
+				"navigationBarTitleText": "我的个人信息"
+			}
+		},
+		{
+			"path": "pages/parking/parking",
+			"style": {
+				"navigationBarTitleText": "停车"
+			}
+		},
+		{
+			"path": "pages/add_car/add_car",
+			"style": {
+				"navigationBarTitleText": "添加车辆"
+			}
+		},
+		{
+			"path": "pages/check_in/check_in",
+			"style": {
+				"navigationBarTitleText": "签到"
+			}
+		},
+		{
+			"path": "pages/my_collect/my_collect",
+			"style": {
+				"navigationBarTitleText": "我的收藏"
+			}
+		},
+		{
+			"path": "pages/door_lock/door_lock",
+			"style": {
+				"navigationBarTitleText": "门禁钥匙"
+			}
+		},
+		{
+			"path": "pages/property_pay/property_pay",
+			"style": {
+				"navigationBarTitleText": "物业缴费"
+			}
+		},
+		{
+			"path": "pages/visitor_invite/visitor_invite",
+			"style": {
+				"navigationBarTitleText": "访客邀请"
+			}
+		},
+		{
+			"path": "pages/repair/repair",
+			"style": {
+				"navigationBarTitleText": "我要报修"
+			}
+		},
+		{
+			"path": "pages/point_detail/point_detail",
+			"style": {
+				"navigationBarTitleText": "积分明细"
+			}
+		},
+		{
+			"path": "pages/suggestions/suggestions",
+			"style": {
+				"navigationBarTitleText": "投诉建议"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "花伴里",
+		"navigationBarBackgroundColor": "#fff",
+		"backgroundColor": "#fff"
+	},
+	"tabBar": {
+		"color": "#dbdbdb",
+		"selectedColor": "#1fa4fc",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/footer_icon1.png",
+				"selectedIconPath": "static/footer_icon1_active.png",
+				"text": "首页"
+			},{
+				"pagePath": "pages/my_order/my_order",
+				"iconPath": "static/footer_icon2.png",
+				"selectedIconPath": "static/footer_icon2_active.png",
+				"text": "订单"
+			},{
+				"pagePath": "pages/person/person",
+				"iconPath": "static/footer_icon3.png",
+				"selectedIconPath": "static/footer_icon3_active.png",
+				"text": "我的"
+			}
+		]
+	}
+}

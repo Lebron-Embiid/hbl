@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/person/person",
+    "pages/find_shop/find_shop",
+    "pages/store/store",
+    "pages/ticket/ticket",
+    "pages/my_order/my_order",
+    "pages/order_eval/order_eval",
+    "pages/quick_pay/quick_pay",
+    "pages/person_info/person_info",
+    "pages/parking/parking",
+    "pages/add_car/add_car",
+    "pages/check_in/check_in"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "花伴里",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#fff"
+  },
+  "tabBar": {
+    "color": "#dbdbdb",
+    "selectedColor": "#1fa4fc",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/footer_icon1.png",
+        "selectedIconPath": "static/footer_icon1_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/my_order/my_order",
+        "iconPath": "static/footer_icon2.png",
+        "selectedIconPath": "static/footer_icon2_active.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "iconPath": "static/footer_icon3.png",
+        "selectedIconPath": "static/footer_icon3_active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}
