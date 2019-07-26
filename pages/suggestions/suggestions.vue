@@ -1,7 +1,7 @@
 <template>
 	<view class="suggest_view">
 		<view class="suggest_btn">
-			<button type="primary" class="submit_btn"><text>+</text>添加</button>
+			<button type="primary" class="submit_btn" @tap="toAddSuggest"><text>+</text>添加</button>
 		</view>
 		<view class="suggest_item" v-for="(item,index) in suggest_list" :key="index">
 			<view class="suggest_title">
@@ -43,7 +43,11 @@
 			}
 		},
 		methods:{
-			
+			toAddSuggest(){
+				uni.navigateTo({
+					url: "/pages/add_suggest/add_suggest"
+				})
+			}
 		},
 		onLoad() {
 			
@@ -52,25 +56,6 @@
 </script>
 
 <style scoped lang="scss">
-	.suggest_btn{
-		display: flex;
-		justify-content: flex-end;
-		margin-bottom: 10upx;
-		.submit_btn{
-			width: 170upx;
-			height: 60upx;
-			line-height: 60upx;
-			margin: 0;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			text{
-				display: block;
-				font-size: 38upx;
-				margin-right: 10upx;
-			}
-		}
-	}
 	.suggest_view{
 		padding: 0 30upx;
 		box-sizing: border-box;

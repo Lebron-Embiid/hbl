@@ -26,7 +26,7 @@
 			<view><image src="../../static/person_icon3.png" mode="widthFix"></image>我的收藏</view>
 			<image src="../../static/arrow1.png" class="arrow" mode="widthFix"></image>
 		</navigator>
-		<navigator url="" class="person_nav_item">
+		<navigator url="/pages/owner_tenant/owner_tenant" class="person_nav_item">
 			<view><image src="../../static/person_icon4.png" mode="widthFix"></image>我是业主/租客</view>
 			<image src="../../static/arrow1.png" class="arrow" mode="widthFix"></image>
 		</navigator>

@@ -113,6 +113,42 @@
 			"style": {
 				"navigationBarTitleText": "投诉建议"
 			}
+		},
+		{
+			"path": "pages/refund/refund",
+			"style": {
+				"navigationBarTitleText": "退款申请"
+			}
+		},
+		{
+			"path": "pages/add_suggest/add_suggest",
+			"style": {
+				"navigationBarTitleText": "投诉建议"
+			}
+		},
+		{
+			"path": "pages/my_code/my_code",
+			"style": {
+				"navigationBarTitleText": "我的二维码"
+			}
+		},
+		{
+			"path": "pages/owner_tenant/owner_tenant",
+			"style": {
+				"navigationBarTitleText": "我是业主/租客"
+			}
+		},
+		{
+			"path": "pages/add_owner_tenant/add_owner_tenant",
+			"style": {
+				"navigationBarTitleText": "我是业主/租客"
+			}
+		},
+		{
+			"path": "pages/photo_credit/photo_credit",
+			"style": {
+				"navigationBarTitleText": "拍照积分"
+			}
 		}
 	],
 	"globalStyle": {

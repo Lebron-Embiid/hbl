@@ -22,7 +22,7 @@
 						<block v-if="item.status == 0">
 							<view class="btn commit_btn" @tap="toCommit(item.id)">评价送积分</view>
 						</block>
-						<view class="btn refund_btn">退款申请</view>
+						<view class="btn refund_btn" @tap="toRefund(item.id)">退款申请</view>
 					</view>
 				</view>
 			</view>
@@ -73,6 +73,11 @@
 			toCommit(e){
 				uni.navigateTo({
 					url: "/pages/order_eval/order_eval?id="+e
+				})
+			},
+			toRefund(e){
+				uni.navigateTo({
+					url: "/pages/refund/refund?id="+e
 				})
 			}
 		},

@@ -11,7 +11,20 @@
     "pages/person_info/person_info",
     "pages/parking/parking",
     "pages/add_car/add_car",
-    "pages/check_in/check_in"
+    "pages/check_in/check_in",
+    "pages/my_collect/my_collect",
+    "pages/door_lock/door_lock",
+    "pages/property_pay/property_pay",
+    "pages/visitor_invite/visitor_invite",
+    "pages/repair/repair",
+    "pages/point_detail/point_detail",
+    "pages/suggestions/suggestions",
+    "pages/refund/refund",
+    "pages/add_suggest/add_suggest",
+    "pages/my_code/my_code",
+    "pages/owner_tenant/owner_tenant",
+    "pages/add_owner_tenant/add_owner_tenant",
+    "pages/photo_credit/photo_credit"
   ],
   "subPackages": [],
   "window": {
@@ -46,6 +59,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

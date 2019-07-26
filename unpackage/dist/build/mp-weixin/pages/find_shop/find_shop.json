@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "找店",
   "usingComponents": {
-    "common-search": "/components/commom_search"
+    "common-search": "/components/common_search",
+    "common-shop": "/components/common_shop"
   }
 }

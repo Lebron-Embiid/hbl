@@ -11,7 +11,7 @@
 				<view class="swiper-item"><image :src="item" mode="widthFix"></image></view>
 			</swiper-item>
 		</swiper>
-		<view class="want_view" v-if="istype == 1">
+		<view class="want_view">
 			<navigator url="/pages/quick_pay/quick_pay" class="want_btn">我要买单</navigator>
 			<view class="want_nav">
 				<view class="want_nav_item" v-for="(item,index) in nav_list" @tap="toAutoPage(index)" :key="index">
@@ -20,7 +20,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="want_view" v-else>
+		<view class="want_view">
 			<view class="want_lock_top">
 				<button type="primary" class="submit_btn">立即认证/3号1903室</button>
 				<picker class="picker_box" :range="array1" @change="bindPropertyChange">
@@ -63,12 +63,12 @@
 					{title: "我要停车",icon: "../../static/want_icon2.png",url: "/pages/parking/parking"},
 					{title: "我要签到",icon: "../../static/want_icon3.png",url: "/pages/check_in/check_in"},
 					{title: "我要卡券",icon: "../../static/want_icon4.png",url: "/pages/ticket/ticket"},
-					{title: "拍照积分",icon: "../../static/want_icon5.png",url: "/pages/store/store"},
-					{title: "我的二维码",icon: "../../static/want_icon6.png"}
+					{title: "拍照积分",icon: "../../static/want_icon5.png",url: "/pages/photo_credit/photo_credit"},
+					{title: "我的二维码",icon: "../../static/want_icon6.png",url: "/pages/my_code/my_code"}
 				],
 				nav_list1: [
 					{title: "门禁钥匙",icon: "../../static/want1_icon1.png",url: "/pages/door_lock/door_lock"},
-					{title: "呼叫管家",icon: "../../static/want1_icon2.png",url: "/pages/parking/parking"},
+					{title: "呼叫管家",icon: "../../static/want1_icon2.png",url: ""},
 					{title: "物业缴费",icon: "../../static/want1_icon3.png",url: "/pages/property_pay/property_pay"},
 					{title: "访客邀请",icon: "../../static/want1_icon4.png",url: "/pages/visitor_invite/visitor_invite"},
 					{title: "我要报修",icon: "../../static/want1_icon5.png",url: "/pages/repair/repair"},

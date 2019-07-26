@@ -35,9 +35,9 @@
 			<view class="repair_photo_box">
 				<view class="add_photo_box">
 					<view class="add_btn" @tap="chooseImage"><image src="../../static/add_pic.png" mode="widthFix"></image></view>
-					<view class="photo_box">
-						<view class="photo_item" v-for="(item,index) in photo_list" :key="index"><image :src="item" mode="widthFix"></image></view>
-					</view>
+					<!-- <view class="photo_box"> -->
+						<view class="photo_item" @tap="previewImage(index)" v-for="(item,index) in photo_list" :key="index"><image :src="item" mode="widthFix"></image></view>
+					<!-- </view> -->
 				</view>
 				<view class="add_txt">上传照片（最多可上传三张）</view>
 				<button type="primary" class="submit_btn">提交</button>
@@ -193,27 +193,35 @@
 						uni.showLoading({
 							title: '上传中'
 						})
-						for(let i in res.tempFilePaths){
-							uni.uploadFile({
-								url: "", //图片接口
-								filePath: res.tempFilePaths[i],
-								name: 'image',
-								success: (uploadFileRes) => {
-									var data = JSON.parse(uploadFileRes.data);
-									console.log(data.data.url);
-									if(that.photo_list.length >= 3){
-										uni.showToast({
-											title: "最多上传3张图片",
-											icon: "none"
-										})
-										return false;
-									}
-									that.photo_list.push(data.data.url);
-								}
-							});
-						}
+						that.photo_list = res.tempFilePaths;
+						// for(let i in res.tempFilePaths){
+						// 	uni.uploadFile({
+						// 		url: "", //图片接口
+						// 		filePath: res.tempFilePaths[i],
+						// 		name: 'image',
+						// 		success: (uploadFileRes) => {
+						// 			var data = JSON.parse(uploadFileRes.data);
+						// 			console.log(data.data.url);
+						// 			if(that.photo_list.length >= 3){
+						// 				uni.showToast({
+						// 					title: "最多上传3张图片",
+						// 					icon: "none"
+						// 				})
+						// 				return false;
+						// 			}
+						// 			that.photo_list.push(data.data.url);
+						// 		}
+						// 	});
+						// }
 						uni.hideLoading();
 					}
+				});
+			},
+			previewImage(e){
+				var that = this;
+				uni.previewImage({
+					current: that.photo_list[e],
+					urls: that.photo_list
 				});
 			},
 			toAccepte(e){
@@ -288,6 +296,8 @@
 					font-size: 20upx;
 				}
 				textarea{
+					display: block;
+					width: 100%;
 					height: 130upx;
 					color: #999;
 					font-size: 20upx;
@@ -301,59 +311,7 @@
 			}
 		}
 	}
-	.repair_photo_box{
-		padding: 30upx;
-		box-sizing: border-box;
-		.add_photo_box{
-			display: flex;
-			justify-content: flex-start;
-			align-items: center;
-			margin-bottom: 25upx;
-			.add_btn{
-				width: 128upx;
-				height: 128upx;
-				border: 1px solid #DBDBDB;
-				box-sizing: border-box;
-				border-radius: 10upx;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				margin-right: 20upx;
-				image{
-					display: block;
-					width: 80upx;
-					height: 80upx;
-				}
-			}
-			.photo_box{
-				display: flex;
-				justify-content: flex-start;
-				align-items: center;
-				.photo_item{
-					width: 128upx;
-					height: 128upx;
-					border: 1px solid #DBDBDB;
-					box-sizing: border-box;
-					border-radius: 10upx;
-					margin-right: 20upx;
-					image{
-						width: 100%;
-						height: 100%;
-					}
-				}
-			}
-		}
-		.add_txt{
-			color: #999;
-			font-size: 20upx;
-			margin-bottom: 40upx;
-		}
-		.submit_btn{
-			width: 270upx;
-			height: 77upx;
-			line-height: 77upx;
-		}
-	}
+	
 	.accepte_shadow{
 		position: fixed;
 		width: 100%;

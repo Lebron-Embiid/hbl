@@ -171,4 +171,138 @@
 			}
 		}
 	}
+	
+	// 上传图片
+	.repair_photo_box{
+		padding: 30upx;
+		box-sizing: border-box;
+		.add_photo_box{
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			flex-wrap: wrap;
+			margin-bottom: 10upx;
+			.add_btn{
+				display: block;
+				width: 128upx;
+				height: 128upx;
+				border: 1px solid #DBDBDB;
+				box-sizing: border-box;
+				border-radius: 10upx;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-right: 20upx;
+				margin-bottom: 20upx;
+				image{
+					display: block;
+					width: 80upx;
+					height: 80upx;
+				}
+			}
+			// .photo_box{
+			// 	display: flex;
+			// 	justify-content: flex-start;
+			// 	align-items: center;
+				.photo_item{
+					display: block;
+					width: 128upx;
+					height: 128upx;
+					border: 1px solid #DBDBDB;
+					box-sizing: border-box;
+					border-radius: 10upx;
+					margin-right: 20upx;
+					margin-bottom: 20upx;
+					image{
+						display: block;
+						width: 100%;
+						height: 100% !important;
+						border-radius: 10upx;
+					}
+				}
+			// }
+		}
+		.add_txt{
+			color: #999;
+			font-size: 20upx;
+			margin-bottom: 40upx;
+		}
+		.submit_btn{
+			width: 270upx;
+			height: 77upx;
+			line-height: 77upx;
+		}
+	}
+	
+	.suggest_btn{
+		display: flex;
+		justify-content: flex-end;
+		margin-bottom: 10upx;
+		.submit_btn{
+			width: 170upx;
+			height: 60upx;
+			line-height: 60upx;
+			margin: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text{
+				display: block;
+				font-size: 38upx;
+				margin-right: 10upx;
+			}
+		}
+	}
+	
+	.add_suggest_top{
+		padding: 30upx 40upx 20upx;
+		box-sizing: border-box;
+		border-bottom: 15upx solid #f7f7f7;
+		.add_suggest_item{
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			margin-bottom: 20upx;
+			color: #595959;
+			font-size: 26upx;
+			.asi_left{
+				margin-top: 15upx;
+				width: 140upx;
+				text{
+					color: #dd2626;
+				}
+			}
+			.asi_right{
+				width: 70%;
+				border: 1px solid #ddd;
+				.picker_box{
+					width: 100%;
+					height: 58upx;
+					padding: 15upx 20upx;
+					box-sizing: border-box;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					color: #999;
+					font-size: 20upx;
+					image{
+						display: block;
+						width: 28upx;
+						height: 18upx;
+					}
+				}
+				input,textarea{
+					width: 100%;
+					height: 58upx;
+					padding: 15upx 20upx;
+					box-sizing: border-box;
+					color: #999;
+					font-size: 20upx;
+				}
+				textarea{
+					height: 155upx;
+				}
+			}
+		}
+	}
 </style>

@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "我的订单",
   "usingComponents": {
-    "common-search": "/components/commom_search"
+    "common-search": "/components/common_search"
   }
 }
