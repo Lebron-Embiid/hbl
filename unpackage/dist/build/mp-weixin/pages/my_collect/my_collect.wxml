@@ -1,0 +1,1 @@
+<view class="my_collect_view data-v-4e308c68"><common-shop vue-id="1" list="{{shop_list}}" class="data-v-4e308c68" bind:__l="__l"></common-shop></view>

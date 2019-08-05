@@ -1,0 +1,79 @@
+.wait_order_box.data-v-f6f56ae2 {
+  padding: 20rpx 40rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.wait_order_box .wait_order_item.data-v-f6f56ae2 {
+    padding: 0 40rpx 30rpx;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-bottom: 30rpx;
+    -webkit-box-shadow: 0 0 15rpx #F2F2F1;
+            box-shadow: 0 0 15rpx #F2F2F1;
+    border-radius: 10rpx;
+}
+.wait_order_box .wait_order_item .woi_item.data-v-f6f56ae2 {
+      padding: 35rpx 0 20rpx;
+      border-bottom: 1px solid #EFEFEF;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      color: #595959;
+      font-size: 26rpx;
+}
+.wait_order_box .wait_order_item .woi_item .woi_left.data-v-f6f56ae2 {
+        width: 150rpx;
+}
+.wait_order_box .wait_order_item .woi_item .woi_left text.data-v-f6f56ae2 {
+          color: #dd2626;
+}
+.wait_order_box .wait_order_item .woi_item .woi_right.data-v-f6f56ae2 {
+        color: #999;
+        font-size: 20rpx;
+}
+.wait_order_box .wait_order_item .woi_bottom.data-v-f6f56ae2 {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      margin-top: 30rpx;
+}
+.wait_order_box .wait_order_item .woi_bottom text.data-v-f6f56ae2 {
+        color: #999;
+        font-size: 24rpx;
+}
+.wait_order_box .wait_order_item .woi_bottom button.data-v-f6f56ae2 {
+        color: #fff;
+        font-size: 24rpx;
+        background: #ff6666;
+        border-radius: 10rpx;
+        margin: 0;
+        padding: 0;
+        width: 130rpx;
+        height: 45rpx;
+        line-height: 45rpx;
+}
+.wait_order_box .wait_order_item .woi_bottom button.data-v-f6f56ae2:after {
+          border: 0;
+}
+.wait_order_box .wait_order_item .woi_bottom button.finish.data-v-f6f56ae2 {
+          background: #ccc;
+}
+

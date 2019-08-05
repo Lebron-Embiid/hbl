@@ -1,0 +1,1 @@
+<view class="search_box"><form class="common_search"><image src="../static/search.png" mode="aspectFit"></image><view class="input_box"><input type="text" placeholder="{{placeholder}}" data-event-opts="{{[['input',[['formSubmit',['$event']]]]]}}" value="{{keywords}}" bindinput="__e"/></view></form></view>

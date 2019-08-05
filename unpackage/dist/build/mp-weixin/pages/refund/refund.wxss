@@ -1,0 +1,138 @@
+.refund_title.data-v-5e2067ce {
+  padding: 15rpx 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 15rpx solid #f7f7f7;
+  color: #262626;
+  font-size: 28rpx;
+}
+.refund_info_box.data-v-5e2067ce {
+  padding: 15rpx 30rpx 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 15rpx solid #f7f7f7;
+}
+.refund_info_box .rib_item.data-v-5e2067ce {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin-bottom: 25rpx;
+    color: #262626;
+    font-size: 24rpx;
+}
+.refund_info_box .rib_item .ri_txt.data-v-5e2067ce {
+      color: #999;
+}
+.refund_info_box .rib_item .ri_info view.data-v-5e2067ce {
+      margin-bottom: 10rpx;
+}
+.refund_info_box .rib_item .ri_info view.data-v-5e2067ce:last-child {
+        margin-bottom: 0;
+}
+.refund_check_box.data-v-5e2067ce {
+  padding: 30rpx 30rpx 20rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 15rpx solid #f7f7f7;
+}
+.refund_check_box .check_view.data-v-5e2067ce {
+    color: #262626;
+    font-size: 24rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 10rpx;
+}
+.refund_check_box .check_view checkbox.data-v-5e2067ce {
+      -webkit-transform: scale(0.7);
+          -ms-transform: scale(0.7);
+              transform: scale(0.7);
+}
+.refund_bottom_box.data-v-5e2067ce {
+  padding: 25rpx 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.refund_bottom_box .rbb_price_box .rpb_item.data-v-5e2067ce {
+    margin-bottom: 25rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    color: #262626;
+    font-size: 24rpx;
+}
+.refund_bottom_box .rbb_price_box .rpb_item .rpb_txt.data-v-5e2067ce {
+      color: #999;
+}
+.refund_bottom_box .rbb_price_box .rpb_item .rpb_info view.data-v-5e2067ce {
+      color: #999;
+      font-size: 20rpx;
+}
+.refund_bottom_box .rbb_price_box .rpb_item .rpb_info .rpbi_ipt.data-v-5e2067ce {
+      color: #262626;
+      font-size: 24rpx;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      -webkit-box-align: start;
+      -webkit-align-items: flex-start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+      margin-bottom: 20rpx;
+}
+.refund_bottom_box .rbb_price_box .rpb_item .rpb_info .rpbi_ipt input.data-v-5e2067ce {
+        color: #999;
+        font-size: 20rpx;
+        margin-left: 10rpx;
+        padding-bottom: 8rpx;
+        border-bottom: 1px solid #C7C7C7;
+}
+.refund_bottom_box .refund_submit.data-v-5e2067ce {
+    margin: 50rpx auto 20rpx;
+}
+.refund_bottom_box .refund_till.data-v-5e2067ce {
+    color: #999;
+    font-size: 20rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 10rpx;
+}
+

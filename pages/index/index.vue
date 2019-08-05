@@ -11,7 +11,7 @@
 				<view class="swiper-item"><image :src="item" mode="widthFix"></image></view>
 			</swiper-item>
 		</swiper>
-		<view class="want_view">
+		<view class="want_view" v-if="istype == 0">
 			<navigator url="/pages/quick_pay/quick_pay" class="want_btn">我要买单</navigator>
 			<view class="want_nav">
 				<view class="want_nav_item" v-for="(item,index) in nav_list" @tap="toAutoPage(index)" :key="index">
@@ -20,7 +20,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="want_view">
+		<view class="want_view" v-else>
 			<view class="want_lock_top">
 				<button type="primary" class="submit_btn">立即认证/3号1903室</button>
 				<picker class="picker_box" :range="array1" @change="bindPropertyChange">
