@@ -42,6 +42,7 @@
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	export default{
 		data(){
 			return{
@@ -94,8 +95,24 @@
 				})
 			}
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			// uni.showLoading({
+			// 	title: '加载中'
+			// })
+			api.get('api/Common/GetSysIndexImagesList', {}).then(res => {
+				console.log(res.data);
+				if(res.data.code == 0){
+					var swiper_images = [];
+					for(let i in res.data.data){
+						swiper_images.push(res.data.data[i].ImageUrl);
+					}
+					this.swiperLists = swiper_images;
+				}
+				// uni.hideLoading();
+			}).catch(err => {
+				
+				// uni.hideLoading();
+			})
 		}
 	}
 </script>

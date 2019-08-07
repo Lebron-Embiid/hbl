@@ -62,6 +62,7 @@
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	export default{
 		data(){
 			return{
@@ -101,8 +102,13 @@
 				console.log(evt.detail.value)
 			}
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			api.get('api/Common/GetBusinessList', {}).then(res => {
+				console.log(res.data);
+				
+			}).catch(err => {
+				
+			})
 		}
 	}
 </script>
