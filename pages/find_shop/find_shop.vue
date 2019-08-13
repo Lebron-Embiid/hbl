@@ -33,6 +33,7 @@
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	import commonSearch from '../../components/common_search.vue'
 	import commonShop from '../../components/common_shop.vue'
 	export default{
@@ -88,8 +89,23 @@
 				this.business_def = this.business_arr[e.target.value];				
 			}
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			api.get('api/Common/GetBusinessList', {Floor: '', Operat: '', BusinessKey:''}).then(res => {
+				console.log(res.data);
+				let data = res.data.data;
+				console.log(data[0].Title);
+				if(data != ''){
+					let businessesList = [];
+					for(let i in data){	
+						let _data = data[i]
+						let businessesObj = {id:i, src:_data.Logo, title:_data.Title, floor:_data.Floor, phone:_data.Tels, isPoint: _data.IsIntegralBus,star_cur: '0',star_icon:'../../static/star1.png' };
+						businessesList.push(businessesObj);
+					}
+					this.shop_list = businessesList;
+				}
+			}).catch(err => {
+
+			})
 		}
 	}
 </script>

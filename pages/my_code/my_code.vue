@@ -3,26 +3,54 @@
 		<view class="page_bg"></view>
 		<view class="my_code">
 			<view class="my_code_info">
-				<view class="blue">会员卡号：1652225269</view>
-				<view>姓名：小陈</view>
+				<view class="blue">会员卡号：{{ card }}</view>
+				<view>姓名：{{ memberName }}</view>
 			</view>
-			<view class="code_img"><image src="../../static/code.jpg" mode="widthFix"></image></view>
+			<view class="code_img"><image :src='QRCode' mode="widthFix"></image></view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	export default{
 		data(){
 			return{
-				
+				card: '加载...',
+				memberName: '加载...',
+				QRCode: '../../static/code.jpg'
 			}
 		},
 		methods:{
 			
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			let OpenID = '1234567890';
+			api.get('api/Common/GetMemberInfo', { OpenID: OpenID }).then(res => {
+				console.log(res);
+				console.log(res.data.code);
+				let code = res.data.code
+				if ( code == 1000 ) {
+					uni.showLoading({
+					    title: '加载失败'
+					});
+				}else {
+					if ( res.data.model == '' ) {
+						uni.showLoading({
+						    title: '加载中'
+						});
+					}else {
+						this.card = res.data.model.Card;
+						this.memberName = res.data.model.MemberName;
+						this.QRCode = res.data.model.QRCode;
+					}
+				}
+				
+				
+				
+			}).catch(err => {
+				
+			})
 		}
 	}
 </script>

@@ -17,6 +17,7 @@
 </template>
 
 <script>
+	import api from '../common/api.js'
 	export default{
 		data(){
 			return{
@@ -29,7 +30,16 @@
 		methods:{
 			toCollect(e){
 				console.log(e);
+				console.log(this.list);
 				if(this.list[e].star_cur == 0){
+					// 收藏商家数据同步到用户收藏列表
+					let mid = '99f0b12e-a0a3-40e9-8011-a1477262a667';
+					let SBID = '92aa376e-5c28-4a55-9d0d-10ce99f1ed3d';
+					api.get('api/Common/GetCollectionList', { MemberID:mid,SBID:SBID }).then(res => {
+						console.log(res.data);
+					}).catch(err => {
+						
+					});
 					this.list[e].star_cur = 1;
 					this.list[e].star_icon = "../../static/star2.png";
 					uni.showToast({
@@ -37,6 +47,7 @@
 						icon: "none"
 					})
 				}else{
+					console.log(this.list[e].star_cur);
 					this.list[e].star_cur = 0;
 					this.list[e].star_icon = "../../static/star1.png";
 					uni.showToast({

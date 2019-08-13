@@ -29,7 +29,7 @@
 			<view class="add_photo_box">
 				<view class="add_btn" @tap="chooseImage"><image src="../../static/camera1.png" mode="widthFix"></image></view>
 				<!-- <view class="photo_box"> -->
-					<view class="photo_item" @tap="previewImage(index)" v-for="(item,index) in photo_list" :key="index"><image :src="item" mode="widthFix"></image></view>
+					<view class="photo_item" @tap="previewImage(index)" v-for="(item,index) in photo_list" :key="index"><image :src="item" mode="widthFix"></image><image src="../../static/close.jpg" @tap.stop="deletePhoto(index)" mode="widthFix" class="del_icon"></image></view>
 				<!-- </view> -->
 			</view>
 			<view class="add_txt">如果您的投诉建议得到采纳，将会赠送积分给您。</view>
@@ -39,6 +39,7 @@
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	export default{
 		data(){
 			return{
@@ -46,7 +47,7 @@
 				index: 0,
 				theme: "",
 				suggest: "",
-				photo_list: ""
+				photo_list: []
 			}
 		},
 		methods:{
@@ -64,7 +65,9 @@
 						uni.showLoading({
 							title: '上传中'
 						})
-						that.photo_list = res.tempFilePaths
+						for(let i in res.tempFilePaths){
+							that.photo_list.push(res.tempFilePaths[i]);
+						}
 						// for(let i in res.tempFilePaths){
 						// 	uni.uploadFile({
 						// 		url: "", //图片接口
@@ -94,10 +97,25 @@
 					current: that.photo_list[e],
 					urls: that.photo_list
 				});
+			},
+			deletePhoto(e){
+				uni.showModal({
+					title: "提示",
+					content: "确定删除图片？",
+					success: (res) => {
+						if(res.confirm){
+							this.photo_list.splice(e, 1);
+						}
+					}
+				})
 			}
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			api.get('', {}).then(res => {
+				console.log(res.data);
+			}).catch(err => {
+				
+			})
 		}
 	}
 </script>

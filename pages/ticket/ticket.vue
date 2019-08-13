@@ -24,16 +24,41 @@
 		</view>
 		<!-- 已使用 -->
 		<view class="ticket_list" v-if="currentTab == 1">
-				
+			<view class="ticket_item" :class="[item.type == 0?'djq':'' || item.type == 1?'zkq':'' || item.type == 2?'lpq':'' || item.type == 3?'mzq':'']" v-for="(item,index) in ticket_list1" :key="index">
+				<!-- <image src="../../static/ticket_bg.jpg" mode="aspectFill"></image> -->
+				<view class="ticket_content">
+					<view class="ticket_top">
+						<view class="ticket_left">
+							<view class="tc_title">{{item.title}}</view>
+							<view class="tc_time">有效期：{{item.start_date}}~{{item.end_date}}</view>
+							<view class="tc_use">立即使用</view>
+						</view>
+					</view>
+					<view class="tc_discount">规则：{{item.rule}}</view>
+				</view>
+			</view>
 		</view>
 		<!-- 已过期 -->
 		<view class="ticket_list" v-if="currentTab == 2">
-				
+			<view class="ticket_item" :class="[item.type == 0?'djq':'' || item.type == 1?'zkq':'' || item.type == 2?'lpq':'' || item.type == 3?'mzq':'']" v-for="(item,index) in ticket_list2" :key="index">
+				<!-- <image src="../../static/ticket_bg.jpg" mode="aspectFill"></image> -->
+				<view class="ticket_content">
+					<view class="ticket_top">
+						<view class="ticket_left">
+							<view class="tc_title">{{item.title}}</view>
+							<view class="tc_time">有效期：{{item.start_date}}~{{item.end_date}}</view>
+							<view class="tc_use">立即使用</view>
+						</view>
+					</view>
+					<view class="tc_discount">规则：{{item.rule}}</view>
+				</view>
+			</view>	
 		</view>
 	</view>
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	export default{
 		data(){
 			return{
@@ -70,16 +95,81 @@
 						end_date: "2019-03-10",
 						rule: "消费满200到400优惠20"
 					}
+				],
+				ticket_list1: [
+					{
+						id: 1,
+						type: 0,
+						title: "麦乐送",
+						start_date: "2019-03-01",
+						end_date: "2019-03-10",
+						rule: "消费满200到400优惠20"
+					},{
+						id: 2,
+						type: 1,
+						title: "炸鸡汉堡专属6元",
+						start_date: "2019-03-01",
+						end_date: "2019-03-10",
+						rule: "消费满500到1000，九折"
+					}
+				],
+				ticket_list2: [
+					{
+						id: 1,
+						type: 0,
+						title: "无门槛15元",
+						start_date: "2019-03-01",
+						end_date: "2019-03-10",
+						rule: "消费满200到400优惠20"
+					},{
+						id: 2,
+						type: 1,
+						title: "熊猫蛋糕",
+						start_date: "2019-03-01",
+						end_date: "2019-03-10",
+						rule: "消费满500到1000，3.5折"
+					}
 				]
 			}
 		},
 		methods:{
 			navbarTap: function(e){
 				this.currentTab = e;
+				let _e = e+1;
+				let mid = '99f0b12e-a0a3-40e9-8011-a1477262a667';
+				api.get('api/Common/GetCouponList', {MemberID:mid,IsMake:_e,CouponType:''}).then(res => {
+					console.log(res.data);
+					const data = res.data.data;
+					if(data != ''){
+						let ticketList = [];
+						for(let i in data){
+							let _data = data[i]
+							let ticketObj = {name:_data.ProjectName, type: _data.CouponType, title:_data.Title, start_date:_data.StartDate,end_date:_data.EndDate,rule:_data.Discount };
+							ticketList.push(ticketObj);
+						}
+						if ( _e == 1 ) {
+							this.ticket_list = ticketList;
+							console.log(1);
+						}else if (_e == 2) {
+							this.ticket_list1 = ticketList;
+							console.log(2);
+						}else {
+							this.ticket_list2 = ticketList;
+							console.log(3);
+						}
+					}
+				}).catch(err => {
+					
+				});
 			}
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			let mid = '99f0b12e-a0a3-40e9-8011-a1477262a667';
+			api.get('api/Common/GetCouponList', {MemberID:mid,IsMake:'1',CouponType:''}).then(res => {
+				console.log(res.data);
+			}).catch(err => {
+				
+			});
 		}
 	}
 </script>

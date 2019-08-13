@@ -3,8 +3,8 @@
 		<view class="page_bg"></view>
 		<image src="../../static/person_bg.jpg" class="person_bg" mode="widthFix"></image>
 		<view class="person_info_box">
-			<view class="pib_avatar"><image src="../../static/order_img1.jpg" mode="aspectFill"></image></view>
-			<view class="pib_name">张湘</view>
+			<view class="pib_avatar"><image :src="avatarUrl" mode="aspectFill"></image></view>
+			<view class="pib_name">{{nickName}}</view>
 			<navigator url="/pages/person_info/person_info" class="pib_info">完善个人信息，可以额外获得300积分! 前去完善>></navigator>
 			<view class="person_check_box">
 				<view class="pcb_left">
@@ -14,11 +14,11 @@
 				<view class="check_btn" @tap="toCheckIn">签到 ></view>
 			</view>
 		</view>
-		<navigator url="/pages/person_info/person_info" class="person_nav_item">
+		<navigator :url="'/pages/person_info/person_info?openId='+openId" class="person_nav_item">
 			<view><image src="../../static/person_icon1.png" mode="widthFix"></image>个人信息</view>
 			<image src="../../static/arrow1.png" class="arrow" mode="widthFix"></image>
 		</navigator>
-		<navigator url="/pages/point_detail/point_detail" class="person_nav_item">
+		<navigator :url="'/pages/point_detail/point_detail?F_ID='+F_ID" class="person_nav_item">
 			<view><image src="../../static/person_icon2.png" mode="widthFix"></image>积分明细</view>
 			<image src="../../static/arrow1.png" class="arrow" mode="widthFix"></image>
 		</navigator>
@@ -46,10 +46,14 @@
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	export default{
 		data(){
 			return{
-				
+				nickName: "张湘",
+				avatarUrl: "../../static/order_img1.jpg",
+				openId: '1234567890',
+				F_ID: ''
 			}
 		},
 		methods:{
@@ -59,8 +63,26 @@
 				})
 			}
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			var that = this;
+			// uni.getUserInfo({
+			//   provider: 'weixin',
+			//   success: function (infoRes) {
+			// 	that.nickName = infoRes.userInfo.nickName;
+			// 	that.avatarUrl = infoRes.userInfo.avatarUrl;
+			//   }
+			// });
+			let OpenID = this.openId;
+			api.get('api/Common/GetMemberInfo', {OpenID:OpenID}).then(res => {
+				console.log('我的页面数据枢纽',res.data);
+			}).catch(err => {
+				
+			});
+		},
+		 onPullDownRefresh: function(e){
+			setTimeout(function () {
+				uni.stopPullDownRefresh();
+			}, 1000);
 		}
 	}
 </script>

@@ -1,0 +1,7 @@
+.shop_list_view.data-v-24acce7a {
+  max-height: 78vh;
+  padding: 0 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+

@@ -27,7 +27,7 @@
 				<sunui-star :defaultStar="0" :maxStar="5" :starSize='"1.2em"' @changeStar="changeStar3" class='sunui-star' />
 			</view>
 		</view>
-		<textarea class="eval_textarea" :value="eval_content" placeholder="分享您的消费体验，超过10字的文字可以获赠10积分" />
+		<textarea class="eval_textarea" v-model="eval_content" :value="eval_content" placeholder="分享您的消费体验，超过10字的文字可以获赠10积分" />
 		<view class="upload_box">
 			<view class="upload_content">
 				<view class="upload_btn" @tap="toChoosePhoto"><image src="../../static/camera.png" class="camera" mode="widthFix"></image></view>
@@ -38,11 +38,12 @@
 			</view>
 			<text>上传照片赠送积分10</text>
 		</view>
-		<button type="primary" class="submit_btn">我要评价</button>
+		<button type="primary" class="submit_btn" v-on:click="onEvaluation">我要评价</button>
 	</view>
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	import sunuiStar from '../../components/sunui-star/sunui-star.vue'
 	export default{
 		data(){
@@ -53,7 +54,13 @@
 				integral: 368,
 				time: "2019-01-25 18:30:24",
 				eval_content: "",
-				photo_list: []
+				photo_list: [],
+				F_ID:'',
+				SBID:'',
+				Commodity:'',
+				Attitude:'',
+				Environment:'',
+				OrderID: ''
 			}
 		},
 		components:{
@@ -62,12 +69,15 @@
 		methods:{
 			changeStar1: function(e) {
                 console.log('curStar1:', e.curStar)
+				this.Commodity = e.curStar;
             },
 			changeStar2: function(e) {
 			    console.log('curStar2:', e.curStar)
+				this.Attitude = e.curStar;
 			},
 			changeStar3: function(e) {
 			    console.log('curStar3:', e.curStar)
+				this.Environment = e.curStar;
 			},
 			toChoosePhoto(){
 				var that = this;
@@ -76,16 +86,18 @@
 					sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
 					sourceType: ['album'], //从相册选择
 					success: function (res) {
-						// uni.uploadFile({
-						// 	url: '', //图片接口
-						// 	filePath: res.tempFilePaths[0],
-						// 	name: 'image',
-						// 	success: (uploadFileRes) => {
-						// 		var data = JSON.parse(uploadFileRes.data);
-						// 	}
-						// });
-						that.photo_list.push(res.tempFilePaths[0]);
-						console.log(that.photo_list);
+						for(let i in res.tempFilePaths){
+							// uni.uploadFile({
+							// 	url: '', //图片接口
+							// 	filePath: res.tempFilePaths[0],
+							// 	name: 'image',
+							// 	success: (uploadFileRes) => {
+							// 		var data = JSON.parse(uploadFileRes.data);
+							// 	}
+							// });
+							that.photo_list.push(res.tempFilePaths[i]);
+							console.log(that.photo_list);
+						}
 					}
 				})
 			},
@@ -105,10 +117,94 @@
 						}
 					}
 				})
+			},
+			// 提交评价
+			onEvaluation (e) {
+				let _this = this;
+				let mid = this.F_ID;
+				let SBID = this.SBID;
+				let Contents = this.eval_content;
+				let Commodity = this.Commodity;
+				let Attitude = this.Attitude;
+				let Environment = this.Environment;
+				let ImagesUrl = this.photo_list;
+				let OrderID = this.OrderID;
+				let STitles = this.title;
+				if ( Commodity == '' || Attitude == '' || Environment == '' ) {
+					let showTitle = '店铺评价必选'
+					this.openShow(showTitle)
+					return
+				}
+				api.post('api/Common/CommentAdd', {
+					MemberID: mid,
+					SBID: SBID,
+					Contents: Contents,
+					Commodity: Commodity,
+					Attitude: Attitude,
+					Environment: Environment,
+					ImagesUrl: ImagesUrl,
+					OrderID: OrderID,
+					STitles: STitles
+				}).then(res => {
+					let code = res.data.code;
+					if ( code == 0 ) {
+						uni.showToast({
+						    title: '提交成功',
+						    duration: 2000
+						});
+						_this.Contents = ''
+						_this.Commodity = ''
+						_this.Attitude = ''
+						_this.Environment =  ''
+						_this.ImagesUrl = ''
+					}else {
+						uni.showToast({
+						    title: '提交失败',
+						    duration: 2000
+						});
+					}
+					
+					console.log(res.data);
+				}).catch(err => {
+					
+				})
+			},
+			// 提示
+			openShow(e) {
+				uni.showToast({
+				    title: e,
+				    duration: 2000
+				});
 			}
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			let _this = this;
+			let e = opt.id;
+			let OpenID = '1234567890';
+			// 获取用户信息
+			api.get('api/Common/GetMemberInfo', {
+				OpenID: OpenID,
+			}).then(res => {
+				// console.log(res.data.model.F_ID);
+				this.F_ID = res.data.model.F_ID;
+			}).catch(err => {
+				
+			})
+			// 获取对应商户信息
+			api.get('api/Common/GetOrderList', {MemberID: '99f0b12e-a0a3-40e9-8011-a1477262a667',SearchKey: ''}).then(res => {
+				console.log('商户列表',res.data.data);
+				let data = res.data.data;
+				console.log(data);
+				for( let i = 0; i < data.length; i ++ ){
+					if ( i == e ) {
+						_this.SBID = data[i].SBID
+						_this.OrderID = data[i].Batch
+						_this.title = data[i].STitles
+					}
+				}
+			}).catch(err => {
+				
+			})
 		}
 	}
 </script>

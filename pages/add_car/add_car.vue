@@ -7,13 +7,14 @@
 			<!-- <view>{{val}}</view> -->
 		</view>
 		<view class="save_box">
-			<button type="primary" class="submit_btn">保存信息</button>
+			<button type="primary" class="submit_btn" v-on:click="storeInfo">保存信息</button>
 		</view>
 		<tki-float-keyboard ref="keybd" :mode="'car'" type="2" :title="'车牌键盘'" @del="keyCbDel" @val="keyCbVal" @hide="keyCbHide"></tki-float-keyboard>
 	</view>
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	import tkiFloatKeyboard from "@/components/tki-float-keyboard/tki-float-keyboard.vue";
 	export default{
 		data(){
@@ -21,6 +22,7 @@
 				car_number: "",
 				carIndex: -1,
 				val: "",
+				F_ID: ''
 			}
 		},
 		components:{
@@ -69,9 +71,43 @@
 					this.carIndex = -1;
 				}
 			},
+			// 保存信息
+			storeInfo () {
+				let fid = this.F_ID;
+				let cnum = this.val;
+				let _this = this;
+				console.log('输入的车牌号',cnum);
+				api.post('api/Common/EditMemberCarNumber', {F_ID:fid, CarNumber:cnum}).then(res => {
+					console.log(res.data);
+					let code = res.data.code
+					if ( code == 1000 ) {
+						uni.showToast({
+						    title: '保存失败',
+						    duration: 2000
+						});
+					}else {
+						uni.showToast({
+						    title: '保存成功',
+						    duration: 2000
+						});
+						_this.val = '';
+					}
+				}).catch(err => {
+					
+				});
+			}
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			console.log(opt);
+			this.F_ID = opt.F_ID;
+			// let mid = '99f0b12e-a0a3-40e9-8011-a1477262a667';
+			// let cnum = this.val;
+			// console.log('输入的车牌号',cnum);
+			// api.get('api/Common/EditMemberCarNumber', {MemberID:mid, CarNumber: cnum}).then(res => {
+			// 	console.log(res.data);
+			// }).catch(err => {
+			// 	
+			// })
 		}
 	}
 </script>

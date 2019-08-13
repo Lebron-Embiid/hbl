@@ -1,20 +1,20 @@
-.title_top.data-v-42c09abc {
+.title_top.data-v-68619a2e {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
-.pay_list.data-v-42c09abc {
+.pay_list.data-v-68619a2e {
   padding: 30rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.pay_list .table_box.data-v-42c09abc {
+.pay_list .table_box.data-v-68619a2e {
     border: 1px solid #F3F3F3;
     border-bottom: 0;
     margin-bottom: 90rpx;
 }
-.pay_list .table_box .th_box.data-v-42c09abc, .pay_list .table_box .td_box.data-v-42c09abc {
+.pay_list .table_box .th_box.data-v-68619a2e, .pay_list .table_box .td_box.data-v-68619a2e {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -30,21 +30,21 @@
       color: #999;
       font-size: 20rpx;
 }
-.pay_list .table_box .th_box .th_item.data-v-42c09abc, .pay_list .table_box .th_box .td_item.data-v-42c09abc, .pay_list .table_box .td_box .th_item.data-v-42c09abc, .pay_list .table_box .td_box .td_item.data-v-42c09abc {
+.pay_list .table_box .th_box .th_item.data-v-68619a2e, .pay_list .table_box .th_box .td_item.data-v-68619a2e, .pay_list .table_box .td_box .th_item.data-v-68619a2e, .pay_list .table_box .td_box .td_item.data-v-68619a2e {
         width: 33.3%;
         text-align: center;
         padding: 15rpx 0;
         border-bottom: 1px solid #F3F3F3;
         border-right: 1px solid #F3F3F3;
 }
-.pay_list .table_box .th_box .th_item.data-v-42c09abc:nth-child(3n), .pay_list .table_box .th_box .td_item.data-v-42c09abc:nth-child(3n), .pay_list .table_box .td_box .th_item.data-v-42c09abc:nth-child(3n), .pay_list .table_box .td_box .td_item.data-v-42c09abc:nth-child(3n) {
+.pay_list .table_box .th_box .th_item.data-v-68619a2e:nth-child(3n), .pay_list .table_box .th_box .td_item.data-v-68619a2e:nth-child(3n), .pay_list .table_box .td_box .th_item.data-v-68619a2e:nth-child(3n), .pay_list .table_box .td_box .td_item.data-v-68619a2e:nth-child(3n) {
           border-right: 0;
 }
-.pay_list .table_box .td_box .td_item.data-v-42c09abc {
+.pay_list .table_box .td_box .td_item.data-v-68619a2e {
       color: #262626;
       font-size: 24rpx;
 }
-.pay_list .pay_btn.data-v-42c09abc {
+.pay_list .pay_btn.data-v-68619a2e {
     width: 265rpx;
     height: 75rpx;
     line-height: 75rpx;

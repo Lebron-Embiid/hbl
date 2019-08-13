@@ -5,6 +5,7 @@
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	import scrollSwiper from '../../components/jing-swiper/jing-swiper.vue'
 	export default{
 		data(){
@@ -18,8 +19,12 @@
 		methods:{
 			
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			api.get('', {}).then(res => {
+				console.log(res.data);
+			}).catch(err => {
+				
+			})
 		}
 	}
 </script>

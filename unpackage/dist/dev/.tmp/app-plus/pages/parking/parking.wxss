@@ -1,0 +1,165 @@
+.add_car_box.data-v-2917f39c {
+  padding: 20rpx 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.add_car_box .submit_btn.data-v-2917f39c {
+    background: -webkit-gradient(linear, left top, right top, from(#1daaff), to(#5daaff));
+    background: -o-linear-gradient(left, #1daaff, #5daaff);
+    background: linear-gradient(left, #1daaff, #5daaff);
+}
+.select_car_box.data-v-2917f39c {
+  color: #262626;
+  font-size: 32rpx;
+  background: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30rpx 0;
+  margin-bottom: 15rpx;
+}
+.select_car_box image.data-v-2917f39c {
+    display: block;
+    width: 24rpx;
+    height: 14rpx;
+    margin-left: 35rpx;
+}
+.park_info_box.data-v-2917f39c {
+  padding: 20rpx 30rpx 10rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fff;
+  margin-bottom: 15rpx;
+}
+.park_info_box .park_info_item.data-v-2917f39c {
+    color: #262626;
+    font-size: 24rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 20rpx;
+}
+.park_info_box .park_bottom_box.data-v-2917f39c {
+    padding-top: 20rpx;
+    border-top: 1px solid #FBFBFB;
+}
+.car_point_box.data-v-2917f39c {
+  padding: 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fff;
+}
+.car_point_box .car_point.data-v-2917f39c {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: #999;
+    font-size: 24rpx;
+}
+.car_point_box .car_point .car_pick.data-v-2917f39c {
+      border: 1px solid #E0E0E0;
+      width: 380rpx;
+      height: 55rpx;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      padding: 0 30rpx 0 20rpx;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      margin: 0 60rpx 0 45rpx;
+}
+.car_point_box .car_point .car_pick image.data-v-2917f39c {
+        display: block;
+        width: 28rpx;
+        height: 18rpx;
+}
+.car_point_box .car_price.data-v-2917f39c {
+    color: #999;
+    font-size: 24rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin: 30rpx 0 40rpx;
+}
+.car_point_box .car_price view.data-v-2917f39c {
+      margin-left: 40rpx;
+      color: #262626;
+      font-size: 18rpx;
+}
+.car_point_box .car_price view text.data-v-2917f39c {
+        font-size: 28rpx;
+}
+.car_point_box .checkbox.data-v-2917f39c {
+    color: #999;
+    font-size: 20rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.car_point_box .checkbox checkbox.data-v-2917f39c {
+      -webkit-transform: scale(0.7);
+          -ms-transform: scale(0.7);
+              transform: scale(0.7);
+}
+.query_box.data-v-2917f39c {
+  padding: 30rpx;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.query_box navigator.data-v-2917f39c {
+    color: #999;
+    font-size: 24rpx;
+    margin-top: 40rpx;
+}
+

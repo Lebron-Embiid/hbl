@@ -5,6 +5,7 @@
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	import commonShop from '../../components/common_shop.vue'
 	export default{
 		data(){
@@ -47,8 +48,23 @@
 		methods:{
 			
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			let mid = '99f0b12e-a0a3-40e9-8011-a1477262a667';
+			api.get('api/Common/GetCollectionList', {MemberID:mid}).then(res => {
+				console.log(res.data);
+				let data = res.data.data;
+				if(data != ''){
+					let shopList = [];
+					for(let i in data){	
+						let _data = data[i]
+						let shopObj = {id:i, src:_data.Logo, title:_data.Title, floor:_data.Floor, phone:_data.Tels, isPoint: _data.IsIntegralBus,star_cur: '0',star_icon:'../../static/star1.png' };
+						shopList.push(shopObj);
+					}
+					this.shop_list = shopList;
+				}
+			}).catch(err => {
+				
+			})
 		}
 	}
 </script>

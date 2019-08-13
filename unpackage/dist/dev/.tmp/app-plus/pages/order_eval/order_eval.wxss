@@ -1,0 +1,142 @@
+.order_eval_view.data-v-3144af60 {
+  padding: 15rpx 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.order_eval_view .order_eval_info.data-v-3144af60 {
+    padding: 20rpx 30rpx;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background: #fff;
+    margin-bottom: 25rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.order_eval_view .order_eval_info image.data-v-3144af60 {
+      display: block;
+      width: 118rpx;
+      height: 118rpx;
+      margin-right: 30rpx;
+}
+.order_eval_view .order_eval_info .order_center.data-v-3144af60 {
+      width: 75%;
+}
+.shop_eval_box.data-v-3144af60 {
+  padding: 20rpx 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fff;
+  margin-bottom: 25rpx;
+}
+.shop_eval_box .seb_title.data-v-3144af60 {
+    color: #262626;
+    font-size: 24rpx;
+    margin-bottom: 20rpx;
+}
+.shop_eval_box .shop_eval_item.data-v-3144af60 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 20rpx;
+}
+.shop_eval_box .shop_eval_item text.data-v-3144af60 {
+      color: #696969;
+      font-size: 24rpx;
+}
+.sunui-star.data-v-3144af60 {
+  width: 60%;
+}
+.eval_textarea.data-v-3144af60 {
+  padding: 20rpx 30rpx;
+  background: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  color: #696969;
+  font-size: 20rpx;
+  margin-bottom: 25rpx;
+}
+.upload_box.data-v-3144af60 {
+  margin-bottom: 80rpx;
+}
+.upload_box .upload_content.data-v-3144af60 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+}
+.upload_box .upload_content .upload_btn.data-v-3144af60, .upload_box .upload_content .upload_photo_item.data-v-3144af60 {
+      width: 128rpx;
+      height: 128rpx;
+      margin: 0 25rpx 25rpx 0;
+      background: #fff;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+}
+.upload_box .upload_content .upload_btn .camera.data-v-3144af60, .upload_box .upload_content .upload_photo_item .camera.data-v-3144af60 {
+        display: block;
+        width: 56rpx;
+        height: 48rpx;
+}
+.upload_box .upload_content .upload_btn .img.data-v-3144af60, .upload_box .upload_content .upload_photo_item .img.data-v-3144af60 {
+        display: block;
+        width: 100%;
+        height: 100%;
+}
+.upload_box .upload_content .upload_photo_item.data-v-3144af60 {
+      background: none;
+      position: relative;
+}
+.upload_box .upload_content .upload_photo_item .del_icon.data-v-3144af60 {
+        position: absolute;
+        width: 30rpx;
+        height: 30rpx;
+        right: 0;
+        top: 0;
+}
+.upload_box text.data-v-3144af60 {
+    display: block;
+    color: #696969;
+    font-size: 20rpx;
+}
+

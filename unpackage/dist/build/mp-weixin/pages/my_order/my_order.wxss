@@ -1,16 +1,16 @@
-.search_box.data-v-047a1cff {
+.search_box.data-v-4b97d64a {
   border-bottom: 0;
   padding-bottom: 0;
   background: #fff;
 }
-.order_content .order_item.data-v-047a1cff {
+.order_content .order_item.data-v-4b97d64a {
   padding: 20rpx 30rpx 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-bottom: 15rpx;
   background: #fff;
 }
-.order_content .order_item .order_top.data-v-047a1cff {
+.order_content .order_item .order_top.data-v-4b97d64a {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -26,17 +26,17 @@
     padding-bottom: 20rpx;
     border-bottom: 1px solid #F9F9F9;
 }
-.order_content .order_item .order_top image.data-v-047a1cff {
+.order_content .order_item .order_top image.data-v-4b97d64a {
       display: block;
       width: 118rpx;
       height: 118rpx;
       margin-right: 30rpx;
 }
-.order_content .order_item .order_top .order_center.data-v-047a1cff {
+.order_content .order_item .order_top .order_center.data-v-4b97d64a {
       width: 50%;
       margin-right: 40rpx;
 }
-.order_content .order_item .order_top .del_btn.data-v-047a1cff {
+.order_content .order_item .order_top .del_btn.data-v-4b97d64a {
       color: #1fa4fc;
       font-size: 24rpx;
       border: 1px solid #1fa4fc;
@@ -46,7 +46,7 @@
       border-radius: 10rpx;
       text-align: center;
 }
-.order_content .order_item .order_bottom.data-v-047a1cff {
+.order_content .order_item .order_bottom.data-v-4b97d64a {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -63,12 +63,12 @@
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
 }
-.order_content .order_item .order_bottom .ob_status.data-v-047a1cff {
+.order_content .order_item .order_bottom .ob_status.data-v-4b97d64a {
       position: relative;
       color: #999;
       font-size: 20rpx;
 }
-.order_content .order_item .order_bottom .ob_status.data-v-047a1cff:before {
+.order_content .order_item .order_bottom .ob_status.data-v-4b97d64a:before {
         content: "";
         display: block;
         width: 5px;
@@ -82,10 +82,10 @@
                 transform: translateY(-50%);
         background: #999;
 }
-.order_content .order_item .order_bottom .ob_status.red.data-v-047a1cff:before {
+.order_content .order_item .order_bottom .ob_status.red.data-v-4b97d64a:before {
         background: #ff6666;
 }
-.order_content .order_item .order_bottom .ob_btn.data-v-047a1cff {
+.order_content .order_item .order_bottom .ob_btn.data-v-4b97d64a {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -99,7 +99,7 @@
           -ms-flex-align: center;
               align-items: center;
 }
-.order_content .order_item .order_bottom .ob_btn .btn.data-v-047a1cff {
+.order_content .order_item .order_bottom .ob_btn .btn.data-v-4b97d64a {
         color: #1fa4fc;
         font-size: 24rpx;
         border: 1px solid #1fa4fc;
@@ -110,14 +110,14 @@
         text-align: center;
         margin-left: 20rpx;
 }
-.order_content .order_item .order_bottom .ob_btn .commit_btn.data-v-047a1cff {
+.order_content .order_item .order_bottom .ob_btn .commit_btn.data-v-4b97d64a {
         margin-left: 0;
         color: #fff;
         background: #ff6666;
         border-color: #ff6666;
         padding: 0 15rpx;
 }
-.order_content .order_item .order_bottom .ob_btn .refund_btn.data-v-047a1cff {
+.order_content .order_item .order_bottom .ob_btn .refund_btn.data-v-4b97d64a {
         color: #999;
         border-color: #999;
 }

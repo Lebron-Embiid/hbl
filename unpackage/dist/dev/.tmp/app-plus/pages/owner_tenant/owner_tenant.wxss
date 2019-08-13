@@ -1,0 +1,36 @@
+.owner_tenant_view.data-v-8e7b8e00 {
+  padding: 20rpx 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.owner_tenant_view .suggest_btn .submit_btn.data-v-8e7b8e00 {
+    width: auto;
+}
+.owner_tenant_view .owner_item.data-v-8e7b8e00 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 20rpx;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 0 10rpx 10rpx #E7E7E6;
+            box-shadow: 0 10rpx 10rpx #E7E7E6;
+    border-radius: 10rpx;
+    margin-bottom: 25rpx;
+    color: #262626;
+    font-size: 24rpx;
+}
+.owner_tenant_view .owner_item .ol_info.data-v-8e7b8e00 {
+      color: #595959;
+      margin-top: 30rpx;
+}
+

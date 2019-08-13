@@ -38,6 +38,7 @@
 			<view class="icv_title">【Social House】Fresh 插花之旅</view>
 			<image src="../../static/flower_img1.jpg" mode="widthFix"></image>
 		</view>
+		<!-- <button open-type="getUserInfo" lang="zh_CN" @getuserinfo="onGotUserInfo">获取用户信息</button> -->
 	</view>
 </template>
 
@@ -59,6 +60,7 @@
 				duration: 500,
 				loop: true,
 				istype: 0,
+				F_ID: '111',
 				nav_list: [
 					{title: "我要找店",icon: "../../static/want_icon1.png",url: "/pages/find_shop/find_shop"},
 					{title: "我要停车",icon: "../../static/want_icon2.png",url: "/pages/parking/parking"},
@@ -73,7 +75,7 @@
 					{title: "物业缴费",icon: "../../static/want1_icon3.png",url: "/pages/property_pay/property_pay"},
 					{title: "访客邀请",icon: "../../static/want1_icon4.png",url: "/pages/visitor_invite/visitor_invite"},
 					{title: "我要报修",icon: "../../static/want1_icon5.png",url: "/pages/repair/repair"},
-					{title: "小区告示",icon: "../../static/want1_icon6.png"}
+					{title: "小区告示",icon: "../../static/want1_icon6.png",url: ""}
 				]
 			}
 		},
@@ -85,22 +87,54 @@
 				this.property_name = this.array1[e.target.value];
 			},
 			toAutoPage(e){
-				uni.navigateTo({
-					url: this.nav_list[e].url
-				})
+				if ( e == 1 ) {
+					uni.navigateTo({
+						url: '/pages/parking/parking?F_ID=' + this.F_ID
+					})
+				}else{
+					uni.navigateTo({
+						url: this.nav_list[e].url
+					})
+				}
 			},
 			toAutoPage1(e){
 				uni.navigateTo({
 					url: this.nav_list1[e].url
 				})
-			}
+			},
+			onGotUserInfo: function(e) {
+				uni.getProvider({
+					service: 'oauth',
+					success: function (res) {
+						console.log(res.provider)
+						if (~res.provider.indexOf('weixin')) {
+							uni.login({
+							  provider: 'weixin',
+							  success: function (loginRes) {
+								console.log(loginRes.authResult);
+								getApp().globalData.access_token = loginRes.authResult.access_token;
+								getApp().globalData.open_id = loginRes.authResult.openid;
+								// 获取用户信息
+								uni.getUserInfo({
+								  provider: 'weixin',
+								  success: function (infoRes) {
+								    console.log(infoRes.userInfo);
+									console.log('用户昵称为：' + infoRes.userInfo.nickName);
+								  }
+								});
+							  }
+							});
+						}
+					}
+				});
+			},
 		},
-		onLoad(opt) {
+		onLoad(opt) {			
 			// uni.showLoading({
 			// 	title: '加载中'
 			// })
 			api.get('api/Common/GetSysIndexImagesList', {}).then(res => {
-				console.log(res.data);
+				// console.log(res.data);
 				if(res.data.code == 0){
 					var swiper_images = [];
 					for(let i in res.data.data){
@@ -112,8 +146,19 @@
 			}).catch(err => {
 				
 				// uni.hideLoading();
-			})
-		}
+			});
+			// 根据OpenID获取会员信息
+			uni.request({
+			    url: 'http://203.156.205.66:8066/api/Common/GetMemberInfo?OpenID=',
+			    method: 'GET',
+			    data: {OpenID: '1234567890'},
+			    success: res => {
+					console.log('根据OpenID获取会员信息',res)
+			    },
+			    fail: () => {},
+			    complete: () => {}
+			});
+		},
 	}
 </script>
 

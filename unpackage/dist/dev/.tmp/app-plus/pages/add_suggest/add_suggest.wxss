@@ -1,0 +1,16 @@
+.repair_photo_box .add_photo_box .add_btn.data-v-4f85720e {
+  width: 116rpx;
+  height: 116rpx;
+}
+.repair_photo_box .add_photo_box .add_btn image.data-v-4f85720e {
+    width: 57rpx;
+    height: 48rpx;
+}
+.repair_photo_box .add_photo_box .photo_item.data-v-4f85720e {
+  width: 116rpx;
+  height: 116rpx;
+}
+.repair_photo_box .add_txt.data-v-4f85720e {
+  margin-bottom: 60rpx;
+}
+

@@ -1,5 +1,9 @@
 <script>
 	export default {
+		globalData:{
+			access_token: "",
+			open_id: ""
+		},
 		onLaunch: function() {
 			console.log('App Launch')
 		},
@@ -213,11 +217,19 @@
 					border-radius: 10upx;
 					margin-right: 20upx;
 					margin-bottom: 20upx;
+					position: relative;
 					image{
 						display: block;
 						width: 100%;
 						height: 100% !important;
 						border-radius: 10upx;
+					}
+					.del_icon{
+						position: absolute;
+						width: 30upx;
+						height: 30upx !important;
+						right: 0;
+						top: 0;
 					}
 				}
 			// }

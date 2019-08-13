@@ -14,7 +14,7 @@
 						</view>
 						<view class="oc_time">时间：<text>{{item.time}}</text></view>
 					</view>
-					<view class="del_btn">删除订单</view>
+					<view class="del_btn" @tap="delOrder(item.id)">删除订单</view>
 				</view>
 				<view class="order_bottom">
 					<view class="ob_status" :class="[item.status == 1?'red':'']">评价状态：{{item.status == 0?'未评价':'已评价'}}</view>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	import commonSearch from '../../components/common_search.vue'
 	export default{
 		data(){
@@ -79,10 +80,72 @@
 				uni.navigateTo({
 					url: "/pages/refund/refund?id="+e
 				})
+			},
+			// 删除订单
+			delOrder(e) {
+				// console.log('--',this._data.order_list[e].F_ID);
+				
+				const _this = this;
+				uni.showModal({
+				    title: '删除--订单',
+				    content: '删除再也不出现在列表页',
+				    success: function (res) {
+				        if (res.confirm) {
+				            console.log('用户点击确定');
+							console.log('e',e);
+							console.log('order_list',_this);
+							
+							let F_ID = _this.order_list[e].F_ID;
+							api.get('api/Common/OrderDel', { OrderID:F_ID }).then(res => {
+								console.log(res.data);
+								api.get('api/Common/GetOrderList', {MemberID: '99f0b12e-a0a3-40e9-8011-a1477262a667',SearchKey: ''}).then(res => {
+									console.log(res.data);
+									console.log(res.data.data);
+									const data = res.data.data;
+									if(data != ''){
+										let orderList = [];
+										for(let i in data){
+											console.log(i)
+											let _data = data[i]
+											let orderObj = {id:i, src: _data.Logo, title:_data.STitles, price:_data.ChargingPrice,  integral:_data.Integral, time: _data.F_CreateDate,status: '0',F_ID:_data.F_ID };
+											orderList.push(orderObj);
+										}
+										_this.order_list = orderList;
+									}
+								}).catch(err => {
+									
+								})
+							}).catch(err => {
+								
+							})
+							
+				        } else if (res.cancel) {
+				            console.log('用户点击取消');
+				        }
+				    }
+				});
+				
+				
 			}
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			api.get('api/Common/GetOrderList', {MemberID: '99f0b12e-a0a3-40e9-8011-a1477262a667',SearchKey: ''}).then(res => {
+				console.log(res.data);
+				console.log(res.data.data);
+				const data = res.data.data;
+				if(data != ''){
+					let orderList = [];
+					for(let i in data){
+						console.log(i)
+						let _data = data[i]
+						let orderObj = {id:i, src: _data.Logo, title:_data.STitles, price:_data.ChargingPrice,  integral:_data.Integral, time: _data.F_CreateDate,status: '0',F_ID:_data.F_ID };
+						orderList.push(orderObj);
+					}
+					this.order_list = orderList;
+				}
+			}).catch(err => {
+				
+			})
 		}
 	}
 </script>

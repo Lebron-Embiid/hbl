@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"my_collect_view.",[1],"data-v-43bc3dc0 { padding: 0 ",[0,30],"; -webkit-box-sizing: border-box; box-sizing: border-box; }\n",],undefined,{path:"./pages/my_collect/my_collect.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/my_collect/my_collect.wxml') } }));

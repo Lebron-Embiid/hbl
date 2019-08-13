@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "门禁钥匙",
+  "usingComponents": {
+    "scroll-swiper": "/components/jing-swiper/jing-swiper"
+  }
+}

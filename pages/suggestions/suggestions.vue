@@ -19,6 +19,7 @@
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	export default{
 		data(){
 			return{
@@ -49,8 +50,12 @@
 				})
 			}
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			api.get('', {}).then(res => {
+				console.log(res.data);
+			}).catch(err => {
+				
+			})
 		}
 	}
 </script>

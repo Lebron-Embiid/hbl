@@ -99,6 +99,7 @@
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	import commonOrder from "../../components/common_order.vue"
 	export default{
 		data(){
@@ -239,8 +240,12 @@
 				that.current = idx;
 			}
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			api.get('', {}).then(res => {
+				console.log(res.data);
+			}).catch(err => {
+				
+			})
 		}
 	}
 </script>

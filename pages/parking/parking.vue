@@ -64,19 +64,21 @@
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	export default{
 		data(){
 			return{
 				car_number: "粤B123455",
 				car_arr: ["粤B123455","粤B123454"],
 				car_point: "500积分抵5元",
-				car_point_arr: ["500积分抵5元","1000积分抵10元"]
+				car_point_arr: ["500积分抵5元","1000积分抵10元"],
+				F_ID: ''
 			}
 		},
 		methods:{
 			toAddCar(e){
 				uni.navigateTo({
-					url: "/pages/add_car/add_car"
+					url: "/pages/add_car/add_car?F_ID=" + this.F_ID
 				})
 			},
 			bindCarChange(e){
@@ -89,8 +91,14 @@
 				console.log(e.detail.value);
 			}
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			console.log(opt.F_ID);
+			this.F_ID = opt.F_ID;
+			api.get('', {}).then(res => {
+				console.log(res.data);
+			}).catch(err => {
+				
+			})
 		}
 	}
 </script>

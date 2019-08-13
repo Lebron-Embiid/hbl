@@ -1,13 +1,13 @@
-.point_detail_view.data-v-a5a6f816 {
+.point_detail_view.data-v-1abfdafb {
   padding: 0 30rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.point_detail_view .point_item.data-v-a5a6f816 {
+.point_detail_view .point_item.data-v-1abfdafb {
     padding: 25rpx 0;
     border-bottom: 1px solid #F2F2F2;
 }
-.point_detail_view .point_item .point_title.data-v-a5a6f816 {
+.point_detail_view .point_item .point_title.data-v-1abfdafb {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -24,18 +24,18 @@
       font-size: 24rpx;
       margin-bottom: 30rpx;
 }
-.point_detail_view .point_item .point_title view.data-v-a5a6f816 {
+.point_detail_view .point_item .point_title view.data-v-1abfdafb {
         width: 60%;
         overflow: hidden;
         -o-text-overflow: ellipsis;
            text-overflow: ellipsis;
         white-space: nowrap;
 }
-.point_detail_view .point_item .point_title text.data-v-a5a6f816 {
+.point_detail_view .point_item .point_title text.data-v-1abfdafb {
         color: #595959;
         font-size: 20rpx;
 }
-.point_detail_view .point_item .point_info.data-v-a5a6f816 {
+.point_detail_view .point_item .point_info.data-v-1abfdafb {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -51,10 +51,10 @@
       color: #595959;
       font-size: 24rpx;
 }
-.point_detail_view .point_item .point_info text.data-v-a5a6f816 {
+.point_detail_view .point_item .point_info text.data-v-1abfdafb {
         color: #36c328;
 }
-.point_detail_view .point_item .point_info text.down.data-v-a5a6f816 {
+.point_detail_view .point_item .point_info text.down.data-v-1abfdafb {
           color: #dd2626;
 }
 

@@ -30,7 +30,7 @@
 							<text>拍照上传</text>
 						</view>
 						<!-- <view class="photo_box"> -->
-							<view class="photo_item" @tap="previewImage(index)" v-for="(item,index) in photo_list" :key="index"><image :src="item" mode="widthFix"></image></view>
+							<view class="photo_item" @tap="previewImage(index)" v-for="(item,index) in photo_list" :key="index"><image :src="item" class="img" mode="widthFix"></image><image src="../../static/close.jpg" @tap.stop="deletePhoto(index)" mode="widthFix" class="del_icon"></image></view>
 						<!-- </view> -->
 					</view>
 				</view>
@@ -49,13 +49,14 @@
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	export default{
 		data(){
 			return{
 				shop_name: "海底捞",
 				consume_price: "489",
 				consume_date: "2019-07-18",
-				photo_list: ""
+				photo_list: []
 			}
 		},
 		methods:{
@@ -65,14 +66,16 @@
 			chooseImage(){
 				var that = this;
 				uni.chooseImage({
-					count: 1, //默认9
+					count: 3, //默认9
 					sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
 					sourceType: ['camera'], //拍照选择
 					success: (res) => {
 						uni.showLoading({
 							title: '上传中'
 						})
-						that.photo_list = res.tempFilePaths;
+						for(let i in res.tempFilePaths){
+							that.photo_list.push(res.tempFilePaths[i]);
+						}
 						// for(let i in res.tempFilePaths){
 						// 	uni.uploadFile({
 						// 		url: "", //图片接口
@@ -102,10 +105,25 @@
 					current: that.photo_list[e],
 					urls: that.photo_list
 				});
+			},
+			deletePhoto(e){
+				uni.showModal({
+					title: "提示",
+					content: "确定删除图片？",
+					success: (res) => {
+						if(res.confirm){
+							this.photo_list.splice(e, 1);
+						}
+					}
+				})
 			}
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			api.get('', {}).then(res => {
+				console.log(res.data);
+			}).catch(err => {
+				
+			})
 		}
 	}
 </script>

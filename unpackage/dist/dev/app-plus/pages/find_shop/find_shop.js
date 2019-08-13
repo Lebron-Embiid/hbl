@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"shop_list_view.",[1],"data-v-24acce7a { max-height: 78vh; padding: 0 ",[0,30],"; -webkit-box-sizing: border-box; box-sizing: border-box; }\n",],undefined,{path:"./pages/find_shop/find_shop.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/find_shop/find_shop.wxml') } }));

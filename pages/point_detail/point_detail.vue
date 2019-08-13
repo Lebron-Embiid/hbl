@@ -14,6 +14,7 @@
 </template>
 
 <script>
+	import api from '../../common/api.js'
 	export default{
 		data(){
 			return{
@@ -51,8 +52,29 @@
 		methods:{
 			
 		},
-		onLoad() {
-			
+		onLoad(opt) {
+			console.log(opt);
+			let mid = '99f0b12e-a0a3-40e9-8011-a1477262a667';
+			api.get('api/Common/GetIntegralList', {MemberID:mid}).then(res => {
+				console.log(res.data);
+				const data = res.data.data;
+				if(data != ''){
+					let pointList = [];
+					for(let i in data){
+						let _data = data[i]
+						let pointObj = {name:_data.ProjectName, time: _data.CreateDate, from:_data.SorceType, point:_data.Integral };
+						pointList.push(pointObj);
+					}
+					this.point_list = pointList;
+				}else {
+					let pointList = [];
+					let pointObj = {name:'暂无数据', time: '', from: '', point:'' };
+					pointList.push(pointObj);
+					this.point_list = pointList;
+				}
+			}).catch(err => {
+				
+			})
 		}
 	}
 </script>

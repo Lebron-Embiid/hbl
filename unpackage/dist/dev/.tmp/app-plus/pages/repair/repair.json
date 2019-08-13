@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我要报修",
+  "usingComponents": {
+    "common-order": "/components/common_order"
+  }
+}

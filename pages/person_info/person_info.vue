@@ -34,7 +34,7 @@
 				</view>
 			</view>
 			<view class="pib_item">
-				<view class="pi_left">出手日期<text>*</text></view>
+				<view class="pi_left">出生日期<text>*</text></view>
 				<picker style="width: 70%;" class="picker" mode="date" @change="bindDateChange">
 					<view class="pi_right pick date">
 						<view>{{date_txt}}</view>
@@ -56,7 +56,7 @@
 			<view class="pib_remark">注：更换手机号，积分转赠等会员行为时需要真实的身份认证。</view>
 		</view>
 		<view class="save_box">
-			<button type="primary" class="submit_btn">保存</button>
+			<button type="primary" class="submit_btn" v-on:click="onSave">保存</button>
 		</view>
 	</view>
 </template>
@@ -66,12 +66,12 @@
 	export default{
 		data(){
 			return{
-				username: "张湘",
-				phone: "13888888888",
+				username: "",
+				phone: "",
 				real_name: "",
 				number: "",
 				number_type: "请选择证件号类型",
-				number_arr: ["身份证"],
+				number_arr: ["身份证",'临时身份证','港澳居民来往内地通行证','外国人出入境证','台湾居民来往大陆通行证'],
 				date_txt: "请选择出生日期",
 				items: [
 					{
@@ -82,7 +82,9 @@
 						name: '女'
 					}
 				],
-				current: 0
+				current: 0,
+				sex: '',
+				OpenID: ''
 			}
 		},
 		methods:{
@@ -100,15 +102,83 @@
 					}
 				}
 				console.log(evt.detail.value)
+			},
+			onSave(){
+				let _this = this;
+				let CardType = this.number_type;
+				let CardNo = this.number;
+				let MemberName = this.real_name;
+				let Sex = this.sex;
+				let Birthday = this.date_txt;
+				let OpenID = this.OpenID;
+				api.post('api/Common/MemberInfoEdit', {
+					CardType:CardType,
+					CardNo:CardNo,
+					MemberName:MemberName,
+					Sex:Sex,
+					Birthday:Birthday,
+					OpenID:OpenID,
+					}).then(res => {
+					let code = res.data.code
+					if ( code == 1000 ) {
+						uni.showToast({
+						    title: '保存失败',
+						    duration: 2000
+						});
+					}else {
+						uni.showToast({
+							title: '保存成功',
+							duration: 2000
+						});
+						_this.number_type ='';
+						_this.CardNo ='';
+						_this.MemberName ='';
+						_this.Sex ='';
+						_this.Birthday = ';'
+					}
+					
+				}).catch(err => {
+					
+				});
 			}
 		},
 		onLoad(opt) {
-			api.get('api/Common/GetBusinessList', {}).then(res => {
-				console.log(res.data);
+			console.log(opt);
+			this.OpenID = opt.openId;
+			let OpenID = opt.openId;
+			
+			api.get('api/Common/GetMemberInfo', {OpenID: OpenID}).then(res => {
+				let code = res.data.code
+				if ( code == 1000 ) {
+					// uni.showLoading({
+					//     title: '加载失败'
+					// });
+				}else {
+					if ( res.data.model == '' ) {
+						uni.showLoading({
+						    title: '加载中'
+						});
+					}else {
+						const data = res.data.model;
+						this.username = data.NickName;
+						this.phone = data.Mobile;
+						this.real_name = data.MemberName;
+						this.number_type = data.CardType;
+						this.number = data.CardNo;
+						this.date_txt = data.Birthday;
+						if ( data.Sex == '男' ) {
+							this.current = 0
+							this.sex = '男'
+						}else {
+							this.current = 1;
+							this.sex = '女'
+						}
+					}
+				}
 				
 			}).catch(err => {
 				
-			})
+			});
 		}
 	}
 </script>

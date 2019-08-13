@@ -1,4 +1,4 @@
-.addcar_number.data-v-28390cc0 {
+.addcar_number.data-v-3c7c374a {
   padding: 40rpx 50rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -17,21 +17,21 @@
           align-items: center;
   font-size: 26rpx;
 }
-.addcar_number text.data-v-28390cc0 {
+.addcar_number text.data-v-3c7c374a {
     color: #262626;
 }
-.addcar_number input.data-v-28390cc0 {
+.addcar_number input.data-v-3c7c374a {
     color: #999;
     display: block;
     width: 80%;
 }
-.save_box.data-v-28390cc0 {
+.save_box.data-v-3c7c374a {
   padding: 0 30rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-top: 150rpx;
 }
-.save_box .submit_btn.data-v-28390cc0 {
+.save_box .submit_btn.data-v-3c7c374a {
     background: -webkit-gradient(linear, left top, right top, from(#1daaff), to(#5daaff));
     background: -o-linear-gradient(left, #1daaff, #5daaff);
     background: linear-gradient(left, #1daaff, #5daaff);

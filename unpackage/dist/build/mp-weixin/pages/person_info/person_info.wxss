@@ -1,9 +1,9 @@
-.person_info_top.data-v-fc04d754 {
+.person_info_top.data-v-bbcac588 {
   padding: 0 30rpx;
   margin-bottom: 12rpx;
   background: #fff;
 }
-.person_info_top .pit_item.data-v-fc04d754 {
+.person_info_top .pit_item.data-v-bbcac588 {
     padding: 25rpx 0;
     border-bottom: 1px solid #F8F8F8;
     color: #595959;
@@ -21,20 +21,20 @@
         -ms-flex-align: center;
             align-items: center;
 }
-.person_info_top .pit_item.data-v-fc04d754:last-child {
+.person_info_top .pit_item.data-v-bbcac588:last-child {
       border-bottom: 0;
 }
-.person_info_top .pit_item text.data-v-fc04d754 {
+.person_info_top .pit_item text.data-v-bbcac588 {
       width: 140rpx;
       margin-right: 10rpx;
 }
-.person_info_bottom.data-v-fc04d754 {
+.person_info_bottom.data-v-bbcac588 {
   padding: 20rpx 30rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background: #fff;
 }
-.person_info_bottom .pib_item.data-v-fc04d754 {
+.person_info_bottom .pib_item.data-v-bbcac588 {
     color: #595959;
     font-size: 26rpx;
     display: -webkit-box;
@@ -51,14 +51,14 @@
             align-items: center;
     margin-bottom: 30rpx;
 }
-.person_info_bottom .pib_item .pi_left.data-v-fc04d754 {
+.person_info_bottom .pib_item .pi_left.data-v-bbcac588 {
       width: 140rpx;
       margin-right: 10rpx;
 }
-.person_info_bottom .pib_item .pi_left text.data-v-fc04d754 {
+.person_info_bottom .pib_item .pi_left text.data-v-bbcac588 {
         color: #dd2626;
 }
-.person_info_bottom .pib_item .pi_right.data-v-fc04d754 {
+.person_info_bottom .pib_item .pi_right.data-v-bbcac588 {
       border: 1px solid #E8E8E8;
       height: 58rpx;
       padding: 5rpx 20rpx;
@@ -76,15 +76,15 @@
       color: #999;
       font-size: 20rpx;
 }
-.person_info_bottom .pib_item .pi_right input.data-v-fc04d754 {
+.person_info_bottom .pib_item .pi_right input.data-v-bbcac588 {
         color: #999;
         font-size: 20rpx;
 }
-.person_info_bottom .pib_item .pi_right.nobor.data-v-fc04d754 {
+.person_info_bottom .pib_item .pi_right.nobor.data-v-bbcac588 {
         border: 0;
         padding: 5rpx 0;
 }
-.person_info_bottom .pib_item .pi_right.nobor .radio_group.data-v-fc04d754 {
+.person_info_bottom .pib_item .pi_right.nobor .radio_group.data-v-bbcac588 {
           display: -webkit-box;
           display: -webkit-flex;
           display: -ms-flexbox;
@@ -98,7 +98,7 @@
               -ms-flex-align: center;
                   align-items: center;
 }
-.person_info_bottom .pib_item .pi_right.nobor .radio_group label.data-v-fc04d754 {
+.person_info_bottom .pib_item .pi_right.nobor .radio_group label.data-v-bbcac588 {
             display: -webkit-box;
             display: -webkit-flex;
             display: -ms-flexbox;
@@ -115,15 +115,15 @@
             color: #595959;
             font-size: 26rpx;
 }
-.person_info_bottom .pib_item .pi_right.nobor .radio_group label.data-v-fc04d754:last-child {
+.person_info_bottom .pib_item .pi_right.nobor .radio_group label.data-v-bbcac588:last-child {
               margin-right: 0;
 }
-.person_info_bottom .pib_item .pi_right.nobor .radio_group label radio.data-v-fc04d754 {
+.person_info_bottom .pib_item .pi_right.nobor .radio_group label radio.data-v-bbcac588 {
               -webkit-transform: scale(0.8);
                   -ms-transform: scale(0.8);
                       transform: scale(0.8);
 }
-.person_info_bottom .pib_item .pi_right.pick.data-v-fc04d754 {
+.person_info_bottom .pib_item .pi_right.pick.data-v-bbcac588 {
         width: 100%;
         display: -webkit-box;
         display: -webkit-flex;
@@ -138,20 +138,20 @@
             -ms-flex-align: center;
                 align-items: center;
 }
-.person_info_bottom .pib_item .pi_right.pick image.data-v-fc04d754 {
+.person_info_bottom .pib_item .pi_right.pick image.data-v-bbcac588 {
           display: block;
           width: 28rpx;
           height: 18rpx;
 }
-.person_info_bottom .pib_item .pi_right.date image.data-v-fc04d754 {
+.person_info_bottom .pib_item .pi_right.date image.data-v-bbcac588 {
         width: 26rpx;
         height: 26rpx;
 }
-.person_info_bottom .pib_remark.data-v-fc04d754 {
+.person_info_bottom .pib_remark.data-v-bbcac588 {
     color: #999;
     font-size: 20rpx;
 }
-.save_box.data-v-fc04d754 {
+.save_box.data-v-bbcac588 {
   padding: 0 30rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
