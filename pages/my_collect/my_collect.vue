@@ -49,9 +49,10 @@
 			
 		},
 		onLoad(opt) {
+			console.log(opt.F_ID);
 			let mid = '99f0b12e-a0a3-40e9-8011-a1477262a667';
 			api.get('api/Common/GetCollectionList', {MemberID:mid}).then(res => {
-				console.log(res.data);
+				console.log("我的收藏",res.data);
 				let data = res.data.data;
 				if(data != ''){
 					let shopList = [];
@@ -65,6 +66,21 @@
 			}).catch(err => {
 				
 			})
+		},
+		updated() {
+			console.log('updated父组件',this.shop_list);
+			let _this = this;
+			let data = this.shop_list;
+			for (let i in data) {
+				let _data = data[i];
+				if (_data.IsCollection == '是') {
+					_this.shop_list[i].star_cur = 1;
+					_this.shop_list[i].star_icon = "../../static/star2.png";
+				}else {
+					_this.shop_list[i].star_cur = 0;
+					_this.shop_list[i].star_icon = "../../static/star1.png";
+				}
+			}
 		}
 	}
 </script>

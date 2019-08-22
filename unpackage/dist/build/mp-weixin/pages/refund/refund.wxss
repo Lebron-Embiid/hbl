@@ -1,4 +1,4 @@
-.refund_title.data-v-91858aa2 {
+.refund_title.data-v-9521d506 {
   padding: 15rpx 30rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -6,13 +6,13 @@
   color: #262626;
   font-size: 28rpx;
 }
-.refund_info_box.data-v-91858aa2 {
+.refund_info_box.data-v-9521d506 {
   padding: 15rpx 30rpx 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-bottom: 15rpx solid #f7f7f7;
 }
-.refund_info_box .rib_item.data-v-91858aa2 {
+.refund_info_box .rib_item.data-v-9521d506 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -29,22 +29,22 @@
     color: #262626;
     font-size: 24rpx;
 }
-.refund_info_box .rib_item .ri_txt.data-v-91858aa2 {
+.refund_info_box .rib_item .ri_txt.data-v-9521d506 {
       color: #999;
 }
-.refund_info_box .rib_item .ri_info view.data-v-91858aa2 {
+.refund_info_box .rib_item .ri_info view.data-v-9521d506 {
       margin-bottom: 10rpx;
 }
-.refund_info_box .rib_item .ri_info view.data-v-91858aa2:last-child {
+.refund_info_box .rib_item .ri_info view.data-v-9521d506:last-child {
         margin-bottom: 0;
 }
-.refund_check_box.data-v-91858aa2 {
+.refund_check_box.data-v-9521d506 {
   padding: 30rpx 30rpx 20rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-bottom: 15rpx solid #f7f7f7;
 }
-.refund_check_box .check_view.data-v-91858aa2 {
+.refund_check_box .check_view.data-v-9521d506 {
     color: #262626;
     font-size: 24rpx;
     display: -webkit-box;
@@ -57,17 +57,17 @@
             align-items: center;
     margin-bottom: 10rpx;
 }
-.refund_check_box .check_view checkbox.data-v-91858aa2 {
+.refund_check_box .check_view checkbox.data-v-9521d506 {
       -webkit-transform: scale(0.7);
           -ms-transform: scale(0.7);
               transform: scale(0.7);
 }
-.refund_bottom_box.data-v-91858aa2 {
+.refund_bottom_box.data-v-9521d506 {
   padding: 25rpx 30rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.refund_bottom_box .rbb_price_box .rpb_item.data-v-91858aa2 {
+.refund_bottom_box .rbb_price_box .rpb_item.data-v-9521d506 {
     margin-bottom: 25rpx;
     display: -webkit-box;
     display: -webkit-flex;
@@ -84,14 +84,14 @@
     color: #262626;
     font-size: 24rpx;
 }
-.refund_bottom_box .rbb_price_box .rpb_item .rpb_txt.data-v-91858aa2 {
+.refund_bottom_box .rbb_price_box .rpb_item .rpb_txt.data-v-9521d506 {
       color: #999;
 }
-.refund_bottom_box .rbb_price_box .rpb_item .rpb_info view.data-v-91858aa2 {
+.refund_bottom_box .rbb_price_box .rpb_item .rpb_info view.data-v-9521d506 {
       color: #999;
       font-size: 20rpx;
 }
-.refund_bottom_box .rbb_price_box .rpb_item .rpb_info .rpbi_ipt.data-v-91858aa2 {
+.refund_bottom_box .rbb_price_box .rpb_item .rpb_info .rpbi_ipt.data-v-9521d506 {
       color: #262626;
       font-size: 24rpx;
       display: -webkit-box;
@@ -108,17 +108,17 @@
               align-items: flex-start;
       margin-bottom: 20rpx;
 }
-.refund_bottom_box .rbb_price_box .rpb_item .rpb_info .rpbi_ipt input.data-v-91858aa2 {
+.refund_bottom_box .rbb_price_box .rpb_item .rpb_info .rpbi_ipt input.data-v-9521d506 {
         color: #999;
         font-size: 20rpx;
         margin-left: 10rpx;
         padding-bottom: 8rpx;
         border-bottom: 1px solid #C7C7C7;
 }
-.refund_bottom_box .refund_submit.data-v-91858aa2 {
+.refund_bottom_box .refund_submit.data-v-9521d506 {
     margin: 50rpx auto 20rpx;
 }
-.refund_bottom_box .refund_till.data-v-91858aa2 {
+.refund_bottom_box .refund_till.data-v-9521d506 {
     color: #999;
     font-size: 20rpx;
     display: -webkit-box;

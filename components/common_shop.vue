@@ -21,22 +21,24 @@
 	export default{
 		data(){
 			return{
-				
+				newdata: '',
 			}
 		},
 		props:{
-			list: Array
+			list: Array,
+			F_ID: String
 		},
 		methods:{
 			toCollect(e){
 				console.log(e);
-				console.log(this.list);
+				console.log("this.list[e]在这里",this.list[e]);
+				console.log("this.list[e].star_cur",this.list[e].star_curt);
+				let mid = this.F_ID;
+				let SBID = this.list[e].SBID;
 				if(this.list[e].star_cur == 0){
 					// 收藏商家数据同步到用户收藏列表
-					let mid = '99f0b12e-a0a3-40e9-8011-a1477262a667';
-					let SBID = '92aa376e-5c28-4a55-9d0d-10ce99f1ed3d';
-					api.get('api/Common/GetCollectionList', { MemberID:mid,SBID:SBID }).then(res => {
-						console.log(res.data);
+					api.post('api/Common/CollectionAdd', { MemberID:mid,SBID:SBID }).then(res => {
+						console.log('收藏成功看这里',res.data);
 					}).catch(err => {
 						
 					});
@@ -47,6 +49,12 @@
 						icon: "none"
 					})
 				}else{
+					// 取消收藏商家数据同步到用户收藏列表
+					api.post('api/Common/CollectionDel', { MemberID:mid,SBID:SBID }).then(res => {
+						console.log('取消收藏成功看这里',res.data);
+					}).catch(err => {
+						
+					});
 					console.log(this.list[e].star_cur);
 					this.list[e].star_cur = 0;
 					this.list[e].star_icon = "../../static/star1.png";
@@ -56,9 +64,10 @@
 					})
 				}
 			}
-		},
-		onLoad() {
-			
+		},watch:{
+			list:function (newVal,oldVal) {
+				this.newdata=newVal;//newVal就是获取的动态新数据，赋值给newdata
+			}
 		}
 	}
 </script>

@@ -7,7 +7,7 @@
 				<view class="ctb_title">连续签到赢<text>好礼</text></view>
 				<view class="check_rotate_box">
 					<view class="check_rotate">
-						<view class="check_rotate_item" :class="[item.isrotate == 1?'rotate':'']" @tap="checkRotate(index)" v-for="(item,index) in rotate_list" :key="index">
+						<view class="check_rotate_item" :class="[item.isrotate == 1?'rotate':'']" @tap="checkRotate(index,item.num)" v-for="(item,index) in rotate_list" :key="index">
 							<image :src="item.poster" class="rotate_img" mode="widthFix"></image>
 							<view class="rotate_layer" :class="[item.isshow == 1?'active':'']">
 								<image :src="item.src" mode="widthFix"></image>
@@ -28,7 +28,7 @@
 							<image src="../../static/rotate_img4.png" class="rotate_img" mode="widthFix"></image>
 						</view> -->
 					</view>
-					<view class="check_till">已连续签到{{day}}天</view>
+					<!-- <view class="check_till">已连续签到{{day}}天</view> -->
 				</view>
 			</view>
 		</view>
@@ -48,62 +48,146 @@
 	export default{
 		data(){
 			return{
-				today: "2019-04-01  星期一 农历 二月廿六",
+				today: "",
 				day: 2,
+				fid: '',
+				SorceType: '签到',
 				rotate_list: [
 					{
 						poster: "../../static/rotate_img1.png",
 						src: "../../static/check_img.jpg",
 						num: 27,
 						isshow: 0,
-						isrotate: 0
+						isrotate: 0,
+						ProjectCode: '',
+						ProjectName: ''
 					},{
 						poster: "../../static/rotate_img2.png",
 						src: "../../static/check_img.jpg",
 						num: 27,
 						isshow: 0,
-						isrotate: 0
+						isrotate: 0,
+						ProjectCode: '',
+						ProjectName: ''
 					},{
 						poster: "../../static/rotate_img3.png",
 						src: "../../static/check_img.jpg",
 						num: 27,
 						isshow: 0,
-						isrotate: 0
+						isrotate: 0,
+						ProjectCode: '',
+						ProjectName: ''
 					},{
 						poster: "../../static/rotate_img4.png",
 						src: "../../static/check_img.jpg",
 						num: 27,
 						isshow: 0,
-						isrotate: 0
+						isrotate: 0,
+						ProjectCode: '',
+						ProjectName: ''
 					}
 				],
 				isturn: 0
 			}
 		},
 		methods:{
-			checkRotate(e){
+			// 判断是否连续签到
+			// checkRotate(e){
+			// 	var that = this;
+			// 	if(that.isturn != 1){
+			// 		that.rotate_list[e].isrotate = 1;
+			// 		setTimeout(function(){
+			// 			that.rotate_list[e].isshow = 1;
+			// 			that.isturn = 1;
+			// 			that.day = that.day+1;
+			// 		},1000)
+			// 	}else{
+			// 		uni.showToast({
+			// 			title: "您今天已签到！",
+			// 			icon: "none"
+			// 		})
+			// 	}
+			// }
+			checkRotate(e,e1){
+				console.log(e);
+				console.log(e1);
 				var that = this;
-				if(that.isturn != 1){
-					that.rotate_list[e].isrotate = 1;
+				let fid = this.rotate_list[e].fid;
+				let Integral = this.rotate_list[e].num;
+				let SorceType = this.SorceType;
+				let ProjectCode = this.rotate_list[e].ProjectCode;
+				let ProjectName = this.rotate_list[e].ProjectName;
+				that.rotate_list[e].isrotate = 1;
 					setTimeout(function(){
 						that.rotate_list[e].isshow = 1;
 						that.isturn = 1;
-						that.day = that.day+1;
-					},1000)
-				}else{
-					uni.showToast({
-						title: "您今天已签到！",
-						icon: "none"
-					})
-				}
+						uni.showToast({
+							title: "获得"+e1+"积分",
+							icon: "none"
+						});
+						//新增积分
+						api.post('api/Common/IntegralAdd', {
+							MemberID:fid,
+							Integral:Integral,
+							SorceType:SorceType,
+							ProjectCode:ProjectCode,
+							ProjectName:ProjectName,
+						}).then(res => {
+							console.log(res.data);
+						}).catch(err => {
+							
+						})
+				},1000)
 			}
 		},
 		onLoad(opt) {
-			api.get('', {}).then(res => {
-				console.log(res.data);
+			// 新填入积分等数据
+			api.get('api/Common/GetIntegralSignList', {}).then(res => {	
+				let code = res.data.code;
+				let data = res.data.data;
+				let _this = this;
+				console.log(data);
+				if ( code == 1000 ) {
+					uni.showLoading({
+					    title: '加载失败'
+					});
+				}else {
+					if(data != ''){
+						let rotateList = [];
+						for(let i in data){	
+							let _data = data[i]
+							let rotateObj = {
+								id:i, 
+								F_ID : data.F_ID,
+								Title:_data.Title, 
+								num:_data.Integral, 
+								ProjectCode:_data.ProjectCode, 
+								ProjectName:_data.ProjectName, 
+								isPoint: _data.IsIntegralBus,
+								star_cur: '0',
+								poster:'../../static/rotate_img3.png',
+								src: "../../static/check_img.jpg",
+								isshow: 0,
+								isrotate: 0
+							};
+							rotateList.push(rotateObj);
+						}
+						this.rotate_list = rotateList;
+					}
+				}
 			}).catch(err => {
 				
-			})
+			});
+			// 获取日期
+			var date=new Date;
+			var year=date.getFullYear(); 
+			var month=date.getMonth()+1;
+				month =(month<10 ? "0"+month:month); 
+			let day = date.getDate();
+			let week = date.getDay();
+			var mydate = (year.toString()+'-'+month.toString()+'-'+day.toString());
+			var weekStr = "星期" + "日一二三四五六".charAt(date.getDay());
+			this.today = mydate+' '+weekStr;
 		}
 	}
 </script>

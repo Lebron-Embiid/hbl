@@ -1,14 +1,14 @@
-.add_car_box.data-v-7e44a607 {
+.add_car_box.data-v-06649227 {
   padding: 20rpx 30rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.add_car_box .submit_btn.data-v-7e44a607 {
+.add_car_box .submit_btn.data-v-06649227 {
     background: -webkit-gradient(linear, left top, right top, from(#1daaff), to(#5daaff));
     background: -o-linear-gradient(left, #1daaff, #5daaff);
     background: linear-gradient(left, #1daaff, #5daaff);
 }
-.select_car_box.data-v-7e44a607 {
+.select_car_box.data-v-06649227 {
   color: #262626;
   font-size: 32rpx;
   background: #fff;
@@ -27,20 +27,20 @@
   padding: 30rpx 0;
   margin-bottom: 15rpx;
 }
-.select_car_box image.data-v-7e44a607 {
+.select_car_box image.data-v-06649227 {
     display: block;
     width: 24rpx;
     height: 14rpx;
     margin-left: 35rpx;
 }
-.park_info_box.data-v-7e44a607 {
+.park_info_box.data-v-06649227 {
   padding: 20rpx 30rpx 10rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background: #fff;
   margin-bottom: 15rpx;
 }
-.park_info_box .park_info_item.data-v-7e44a607 {
+.park_info_box .park_info_item.data-v-06649227 {
     color: #262626;
     font-size: 24rpx;
     display: -webkit-box;
@@ -57,17 +57,17 @@
             align-items: center;
     margin-bottom: 20rpx;
 }
-.park_info_box .park_bottom_box.data-v-7e44a607 {
+.park_info_box .park_bottom_box.data-v-06649227 {
     padding-top: 20rpx;
     border-top: 1px solid #FBFBFB;
 }
-.car_point_box.data-v-7e44a607 {
+.car_point_box.data-v-06649227 {
   padding: 30rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background: #fff;
 }
-.car_point_box .car_point.data-v-7e44a607 {
+.car_point_box .car_point.data-v-06649227 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -83,7 +83,7 @@
     color: #999;
     font-size: 24rpx;
 }
-.car_point_box .car_point .car_pick.data-v-7e44a607 {
+.car_point_box .car_point .car_pick.data-v-06649227 {
       border: 1px solid #E0E0E0;
       width: 380rpx;
       height: 55rpx;
@@ -104,12 +104,12 @@
               box-sizing: border-box;
       margin: 0 60rpx 0 45rpx;
 }
-.car_point_box .car_point .car_pick image.data-v-7e44a607 {
+.car_point_box .car_point .car_pick image.data-v-06649227 {
         display: block;
         width: 28rpx;
         height: 18rpx;
 }
-.car_point_box .car_price.data-v-7e44a607 {
+.car_point_box .car_price.data-v-06649227 {
     color: #999;
     font-size: 24rpx;
     display: -webkit-box;
@@ -126,15 +126,15 @@
             justify-content: flex-start;
     margin: 30rpx 0 40rpx;
 }
-.car_point_box .car_price view.data-v-7e44a607 {
+.car_point_box .car_price view.data-v-06649227 {
       margin-left: 40rpx;
       color: #262626;
       font-size: 18rpx;
 }
-.car_point_box .car_price view text.data-v-7e44a607 {
+.car_point_box .car_price view text.data-v-06649227 {
         font-size: 28rpx;
 }
-.car_point_box .checkbox.data-v-7e44a607 {
+.car_point_box .checkbox.data-v-06649227 {
     color: #999;
     font-size: 20rpx;
     display: -webkit-box;
@@ -146,18 +146,18 @@
         -ms-flex-align: center;
             align-items: center;
 }
-.car_point_box .checkbox checkbox.data-v-7e44a607 {
+.car_point_box .checkbox checkbox.data-v-06649227 {
       -webkit-transform: scale(0.7);
           -ms-transform: scale(0.7);
               transform: scale(0.7);
 }
-.query_box.data-v-7e44a607 {
+.query_box.data-v-06649227 {
   padding: 30rpx;
   text-align: center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.query_box navigator.data-v-7e44a607 {
+.query_box navigator.data-v-06649227 {
     color: #999;
     font-size: 24rpx;
     margin-top: 40rpx;

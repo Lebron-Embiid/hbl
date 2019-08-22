@@ -1,4 +1,4 @@
-.shop_item.data-v-2b637767 {
+.shop_item.data-v-662afc33 {
   padding: 15rpx 0;
   display: -webkit-box;
   display: -webkit-flex;
@@ -13,7 +13,7 @@
       -ms-flex-align: start;
           align-items: flex-start;
 }
-.shop_item .shop_info.data-v-2b637767 {
+.shop_item .shop_info.data-v-662afc33 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -29,22 +29,22 @@
     color: #262626;
     font-size: 24rpx;
 }
-.shop_item .shop_info .si_title text.data-v-2b637767 {
+.shop_item .shop_info .si_title text.data-v-662afc33 {
       margin-left: 10rpx;
 }
-.shop_item .shop_info .si_type.data-v-2b637767 {
+.shop_item .shop_info .si_type.data-v-662afc33 {
       color: #dd2626;
 }
-.shop_item .shop_info .shop_img.data-v-2b637767 {
+.shop_item .shop_info .shop_img.data-v-662afc33 {
       display: block;
       width: 138rpx;
       height: 138rpx;
       margin-right: 30rpx;
 }
-.shop_item .shop_info .si_phone.data-v-2b637767 {
+.shop_item .shop_info .si_phone.data-v-662afc33 {
       margin: 10rpx 0;
 }
-.shop_item .star_icon.data-v-2b637767 {
+.shop_item .star_icon.data-v-662afc33 {
     display: block;
     width: 42rpx;
     height: 40rpx;

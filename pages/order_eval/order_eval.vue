@@ -152,11 +152,11 @@
 						    title: '提交成功',
 						    duration: 2000
 						});
-						_this.Contents = ''
-						_this.Commodity = ''
-						_this.Attitude = ''
-						_this.Environment =  ''
-						_this.ImagesUrl = ''
+						setTimeout(function () {
+							wx.navigateBack({
+							  delta:1
+							})
+						}, 2000);
 					}else {
 						uni.showToast({
 						    title: '提交失败',
@@ -173,35 +173,24 @@
 			openShow(e) {
 				uni.showToast({
 				    title: e,
-				    duration: 2000
+				    duration: 2000,
+					icon: "none"
 				});
 			}
 		},
 		onLoad(opt) {
 			let _this = this;
 			let e = opt.id;
-			let OpenID = '1234567890';
-			// 获取用户信息
-			api.get('api/Common/GetMemberInfo', {
-				OpenID: OpenID,
-			}).then(res => {
-				// console.log(res.data.model.F_ID);
-				this.F_ID = res.data.model.F_ID;
-			}).catch(err => {
-				
-			})
+			let F_ID = opt.F_ID;
+			let F_SBID = opt.F_SBID;
+			
 			// 获取对应商户信息
-			api.get('api/Common/GetOrderList', {MemberID: '99f0b12e-a0a3-40e9-8011-a1477262a667',SearchKey: ''}).then(res => {
-				console.log('商户列表',res.data.data);
-				let data = res.data.data;
-				console.log(data);
-				for( let i = 0; i < data.length; i ++ ){
-					if ( i == e ) {
-						_this.SBID = data[i].SBID
-						_this.OrderID = data[i].Batch
-						_this.title = data[i].STitles
-					}
-				}
+			api.get('api/Common/GetOrderInfo', {OrderID: F_SBID}).then(res => {
+				let data = res.data.model;
+				console.log('商户列表',data);
+				_this.SBID = data.SBID, //商家编号
+				_this.OrderID = data.Batch, //交易流水号
+				_this.STitles = data.STitles //商家编号
 			}).catch(err => {
 				
 			})

@@ -1,7 +1,7 @@
 <template>
 	<view class="my_order_view">
 		<view class="page_bg"></view>
-		<common-search :keywords="keywords" :placeholder="placeholder"></common-search>
+		<common-search :keywords="keywords" :F_ID="F_ID" :type="type" @searchData="getData" :placeholder="placeholder"></common-search>
 		<view class="order_content">
 			<view class="order_item" v-for="(item,index) in order_list" :key="index">
 				<view class="order_top">
@@ -33,6 +33,7 @@
 <script>
 	import api from '../../common/api.js'
 	import commonSearch from '../../components/common_search.vue'
+	import store from '../../store/store'
 	export default{
 		data(){
 			return{
@@ -47,24 +48,10 @@
 						integral: 368,
 						time: "2019-01-25 18:30:24",
 						status: 0
-					},{
-						id: 2,
-						src: "../../static/order_img2.jpg",
-						title: "海底捞",
-						price: "668.00",
-						integral: 668,
-						time: "2019-01-25 18:30:24",
-						status: 0
-					},{
-						id: 3,
-						src: "../../static/order_img3.jpg",
-						title: "孩子王",
-						price: "368.00",
-						integral: 368,
-						time: "2019-01-25 18:30:24",
-						status: 1
 					}
-				]
+				],
+				F_ID: '',
+				type: true,
 			}
 		},
 		components:{
@@ -72,8 +59,9 @@
 		},
 		methods:{
 			toCommit(e){
+				let F_SBID = this.order_list[e].F_ID;
 				uni.navigateTo({
-					url: "/pages/order_eval/order_eval?id="+e
+					url: "/pages/order_eval/order_eval?id="+e+"&F_SBID="+F_SBID+'&F_ID='+this.F_ID,
 				})
 			},
 			toRefund(e){
@@ -98,7 +86,7 @@
 							let F_ID = _this.order_list[e].F_ID;
 							api.get('api/Common/OrderDel', { OrderID:F_ID }).then(res => {
 								console.log(res.data);
-								api.get('api/Common/GetOrderList', {MemberID: '99f0b12e-a0a3-40e9-8011-a1477262a667',SearchKey: ''}).then(res => {
+								api.get('api/Common/GetOrderList', {MemberID: _this.F_ID,SearchKey: ''}).then(res => {
 									console.log(res.data);
 									console.log(res.data.data);
 									const data = res.data.data;
@@ -126,13 +114,10 @@
 				});
 				
 				
-			}
-		},
-		onLoad(opt) {
-			api.get('api/Common/GetOrderList', {MemberID: '99f0b12e-a0a3-40e9-8011-a1477262a667',SearchKey: ''}).then(res => {
-				console.log(res.data);
-				console.log(res.data.data);
-				const data = res.data.data;
+			},
+			getData(val) {
+			    console.log('父组件接受收---',val)
+				const data = val;
 				if(data != ''){
 					let orderList = [];
 					for(let i in data){
@@ -143,10 +128,38 @@
 					}
 					this.order_list = orderList;
 				}
+			}
+		},
+		onLoad(opt) {
+			let OpenID = store.state.OpenID;
+			let MemberID = this.F_ID;
+			api.get('api/Common/GetMemberInfo', {OpenID:OpenID}).then(res => {
+				console.log(res.data);
+				let fid = this.F_ID = res.data.model.F_ID;
+				if( fid != 0 ) {
+					api.get('api/Common/GetOrderList', {MemberID: fid,SearchKey: ''}).then(res => {
+						console.log(res.data);
+							
+						const data = res.data.data;
+						if(data != ''){
+							let orderList = [];
+							for(let i in data){
+								console.log(i)
+								let _data = data[i]
+								let orderObj = {id:i, src: _data.Logo, title:_data.STitles, price:_data.ChargingPrice,  integral:_data.Integral, time: _data.F_CreateDate,status: _data.Iscomment,F_ID:_data.F_ID };
+								orderList.push(orderObj);
+							}
+							this.order_list = orderList;
+						}
+					}).catch(err => {
+						
+					})
+				}
+				
 			}).catch(err => {
 				
 			})
-		}
+		},
 	}
 </script>
 

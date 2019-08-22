@@ -44,6 +44,7 @@
 
 <script>
 	import api from '../../common/api.js'
+	import store from '../../store/store'
 	export default{
 		data(){
 			return{
@@ -53,14 +54,15 @@
 				property_name: "多套物业选择",
 				array: ['花伴里'],
 				array1: ['物业选择1'],
-				swiperLists: ["../../static/banner.jpg","../../static/banner.jpg","../../static/banner.jpg"],
+				swiperLists: ["../../static/banner.jpg"],
 				indicatorDots: true,
 				autoplay: true,
 				interval: 2000,
 				duration: 500,
 				loop: true,
 				istype: 0,
-				F_ID: '111',
+				F_ID: '',
+				OpenID: '',
 				nav_list: [
 					{title: "我要找店",icon: "../../static/want_icon1.png",url: "/pages/find_shop/find_shop"},
 					{title: "我要停车",icon: "../../static/want_icon2.png",url: "/pages/parking/parking"},
@@ -87,9 +89,17 @@
 				this.property_name = this.array1[e.target.value];
 			},
 			toAutoPage(e){
-				if ( e == 1 ) {
+				if ( e == 0 ) {
 					uni.navigateTo({
-						url: '/pages/parking/parking?F_ID=' + this.F_ID
+						url: '/pages/find_shop/find_shop?F_ID=' + this.F_ID,
+					})
+				}else if ( e == 1 ){
+					uni.navigateTo({
+						url: '/pages/parking/parking?F_ID=' + this.F_ID,
+					})
+				}else if ( e == 4 ){
+					uni.navigateTo({
+						url: '/pages/photo_credit/photo_credit?F_ID=' + this.F_ID,
 					})
 				}else{
 					uni.navigateTo({
@@ -133,6 +143,7 @@
 			// uni.showLoading({
 			// 	title: '加载中'
 			// })
+			this.OpenID = store.state.OpenID
 			api.get('api/Common/GetSysIndexImagesList', {}).then(res => {
 				// console.log(res.data);
 				if(res.data.code == 0){
@@ -151,9 +162,12 @@
 			uni.request({
 			    url: 'http://203.156.205.66:8066/api/Common/GetMemberInfo?OpenID=',
 			    method: 'GET',
-			    data: {OpenID: '1234567890'},
+			    data: {OpenID: this.OpenID},
 			    success: res => {
 					console.log('根据OpenID获取会员信息',res)
+					console.log('F_ID前',this.F_ID);
+					this.F_ID = res.data.model.F_ID;
+					console.log('F_ID后',this.F_ID);
 			    },
 			    fail: () => {},
 			    complete: () => {}
@@ -163,6 +177,9 @@
 </script>
 
 <style scoped lang="scss">
+	.title_top {
+		font-size: 24upx;
+	}
 	.swiper{
 		height: 370upx;
 		.swiper-item image{
@@ -208,7 +225,7 @@
 					padding: 0 30upx;
 					box-sizing: border-box;
 					color: #262626;
-					font-size: 28upx;
+					font-size: 32upx;
 					image{
 						display: block;
 						width: 15upx;

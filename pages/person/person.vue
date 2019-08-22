@@ -8,13 +8,13 @@
 			<navigator url="/pages/person_info/person_info" class="pib_info">完善个人信息，可以额外获得300积分! 前去完善>></navigator>
 			<view class="person_check_box">
 				<view class="pcb_left">
-					<view class="pl_point">当前可用积分<text>56,000</text></view>
+					<view class="pl_point">当前可用积分<text>{{Integral}}</text></view>
 					<view class="pl_till">签到获取更多积分~</view>
 				</view>
 				<view class="check_btn" @tap="toCheckIn">签到 ></view>
 			</view>
 		</view>
-		<navigator :url="'/pages/person_info/person_info?openId='+openId" class="person_nav_item">
+		<navigator :url="'/pages/person_info/person_info?openId='+OpenID" class="person_nav_item">
 			<view><image src="../../static/person_icon1.png" mode="widthFix"></image>个人信息</view>
 			<image src="../../static/arrow1.png" class="arrow" mode="widthFix"></image>
 		</navigator>
@@ -22,11 +22,12 @@
 			<view><image src="../../static/person_icon2.png" mode="widthFix"></image>积分明细</view>
 			<image src="../../static/arrow1.png" class="arrow" mode="widthFix"></image>
 		</navigator>
-		<navigator url="/pages/my_collect/my_collect" class="person_nav_item">
+		<navigator :url="'/pages/my_collect/my_collect?F_ID='+F_ID" class="person_nav_item">
 			<view><image src="../../static/person_icon3.png" mode="widthFix"></image>我的收藏</view>
 			<image src="../../static/arrow1.png" class="arrow" mode="widthFix"></image>
 		</navigator>
-		<navigator url="/pages/owner_tenant/owner_tenant" class="person_nav_item">
+		<navigator url="" class="person_nav_item" @click="notOpenYet">
+		<!-- <navigator url="/pages/owner_tenant/owner_tenant" class="person_nav_item"> -->
 			<view><image src="../../static/person_icon4.png" mode="widthFix"></image>我是业主/租客</view>
 			<image src="../../static/arrow1.png" class="arrow" mode="widthFix"></image>
 		</navigator>
@@ -34,7 +35,7 @@
 			<view><image src="../../static/person_icon5.png" mode="widthFix"></image>建议投诉</view>
 			<image src="../../static/arrow1.png" class="arrow" mode="widthFix"></image>
 		</navigator>
-		<navigator url="" class="person_nav_item">
+		<navigator url="" class="person_nav_item" @click="notOpenYet">
 			<view><image src="../../static/person_icon6.png" mode="widthFix"></image>会员权益</view>
 			<image src="../../static/arrow1.png" class="arrow" mode="widthFix"></image>
 		</navigator>
@@ -47,20 +48,30 @@
 
 <script>
 	import api from '../../common/api.js'
+	import store from '../../store/store'
 	export default{
 		data(){
 			return{
 				nickName: "张湘",
 				avatarUrl: "../../static/order_img1.jpg",
-				openId: '1234567890',
-				F_ID: ''
+				OpenID: '',
+				F_ID: '',
+				Integral: ''
 			}
 		},
 		methods:{
 			toCheckIn(e){
 				uni.navigateTo({
-					url: "/pages/check_in/check_in"
+					url: "/pages/check_in/check_in?uniBack=1"
 				})
+			},
+			// 功能暂未开放
+			notOpenYet() {
+				uni.showToast({
+				    title: '该功能暂未开放',
+				    duration: 2000,
+					icon: 'none'
+				});
 			}
 		},
 		onLoad(opt) {
@@ -72,9 +83,17 @@
 			// 	that.avatarUrl = infoRes.userInfo.avatarUrl;
 			//   }
 			// });
-			let OpenID = this.openId;
+			this.OpenID = store.state.OpenID;
+			let OpenID = store.state.OpenID;
 			api.get('api/Common/GetMemberInfo', {OpenID:OpenID}).then(res => {
-				console.log('我的页面数据枢纽',res.data);
+				console.log('我的页面数据枢纽',res);
+				
+				let data = res.data.model;
+				console.log('我的页面数据枢纽data',data);
+				this.nickName = data.NickName;
+				this.avatarUrl = data.Head;
+				this.Integral = data.Integral;
+				this.F_ID = data.F_ID;
 			}).catch(err => {
 				
 			});

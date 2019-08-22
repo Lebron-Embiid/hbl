@@ -1,4 +1,4 @@
-.owner_radio_box.data-v-11541213 {
+.owner_radio_box.data-v-8c054e3e {
   margin-bottom: 30rpx;
   display: -webkit-box;
   display: -webkit-flex;
@@ -13,21 +13,21 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.owner_radio_box .radio.data-v-11541213 {
+.owner_radio_box .radio.data-v-8c054e3e {
     margin: 0 60rpx 0 20rpx;
     color: #595959;
     font-size: 26rpx;
 }
-.owner_radio_box .radio radio.data-v-11541213 {
+.owner_radio_box .radio radio.data-v-8c054e3e {
       -webkit-transform: scale(0.7);
           -ms-transform: scale(0.7);
               transform: scale(0.7);
 }
-.add_suggest_top.data-v-11541213 {
+.add_suggest_top.data-v-8c054e3e {
   padding: 20rpx 40rpx 60rpx;
   background: #fff;
 }
-.add_suggest_top .submit_btn.data-v-11541213 {
+.add_suggest_top .submit_btn.data-v-8c054e3e {
     width: 270rpx;
     height: 77rpx;
     line-height: 77rpx;

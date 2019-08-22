@@ -1,6 +1,12 @@
 <template>
 	<view class="find_shop_view">
-		<common-search :keywords="keywords" :placeholder="placeholder"></common-search>
+		<common-search 
+		:keywords="keywords" 
+		v-on:formSubmit="receive"
+		:info="[F_ID,floor_def,business_def]"
+		:type="type"
+		@searchData="getData"
+		></common-search>
 		<view class="select_nav_box">
 			<view class="select_nav_item">
 				<picker :range="floor_arr" @change="select_floor">
@@ -14,7 +20,7 @@
 			</view>
 		</view>
 		<scroll-view scroll-y="true" class="shop_list_view">
-			<common-shop :list="shop_list"></common-shop>
+			<common-shop :list="shop_list" :F_ID="F_ID"></common-shop>
 			<!-- <view class="shop_item" v-for="(item,index) in shop_list" :key="index">
 				<view class="shop_info">
 					<image :src="item.src" class="shop_img" mode="aspectFill"></image>
@@ -39,6 +45,8 @@
 	export default{
 		data(){
 			return{
+				type: false,
+				F_ID: '',
 				keywords: "",
 				placeholder: "输入商户关键字搜索",
 				floor_def: "楼层",
@@ -55,24 +63,6 @@
 						isPoint: 1,
 						star_cur: 0,
 						star_icon: "../../static/star1.png"
-					},{
-						id: 2,
-						src: "../../static/shop_img2.jpg",
-						title: "即墨海尚海",
-						floor: "F305",
-						phone: "15811252064",
-						isPoint: 1,
-						star_cur: 0,
-						star_icon: "../../static/star1.png"
-					},{
-						id: 3,
-						src: "../../static/shop_img3.jpg",
-						title: "即墨海尚海",
-						floor: "F305",
-						phone: "15811252064",
-						isPoint: 0,
-						star_cur: 0,
-						star_icon: "../../static/star1.png"
 					}
 				]
 			}
@@ -87,18 +77,34 @@
 			},
 			select_business(e){
 				this.business_def = this.business_arr[e.target.value];				
-			}
+			},
+			 //接收子组件传递的值，val参数是传递过来的值 ，子组件改变父组件的值
+			  getData(val){
+				console.log(val);
+				let data = val;
+				if(data != ''){
+					let businessesList = [];
+					for(let i in data){	
+						let _data = data[i]
+						let businessesObj = {id:i, src:_data.Logo, title:_data.Title, floor:_data.Floor, SBID:_data.SBID, phone:_data.Tels,IsCollection:_data.IsCollection, isPoint: _data.IsIntegralBus,star_cur: '0',star_icon:'../../static/star1.png' };
+						businessesList.push(businessesObj);
+					}
+					this.shop_list = businessesList;
+				}
+			  }
 		},
 		onLoad(opt) {
-			api.get('api/Common/GetBusinessList', {Floor: '', Operat: '', BusinessKey:''}).then(res => {
-				console.log(res.data);
+			console.log(opt.F_ID);
+			let MemberID = this.F_ID = opt.F_ID;
+			api.get('api/Common/GetBusinessList', {Floor: '', Operat: '', BusinessKey:'',MemberID:MemberID}).then(res => {
+				console.log('res.data',res.data);
 				let data = res.data.data;
 				console.log(data[0].Title);
 				if(data != ''){
 					let businessesList = [];
 					for(let i in data){	
 						let _data = data[i]
-						let businessesObj = {id:i, src:_data.Logo, title:_data.Title, floor:_data.Floor, phone:_data.Tels, isPoint: _data.IsIntegralBus,star_cur: '0',star_icon:'../../static/star1.png' };
+						let businessesObj = {id:i, src:_data.Logo, title:_data.Title, floor:_data.Floor, SBID:_data.SBID, phone:_data.Tels,IsCollection:_data.IsCollection, isPoint: _data.IsIntegralBus,star_cur: '0',star_icon:'../../static/star1.png' };
 						businessesList.push(businessesObj);
 					}
 					this.shop_list = businessesList;
@@ -106,6 +112,21 @@
 			}).catch(err => {
 
 			})
+		},
+		updated() {
+			console.log('updated父组件',this.shop_list);
+			let _this = this;
+			let data = this.shop_list;
+			for (let i in data) {
+				let _data = data[i];
+				if (_data.IsCollection == '是') {
+					_this.shop_list[i].star_cur = 1;
+					_this.shop_list[i].star_icon = "../../static/star2.png";
+				}else {
+					_this.shop_list[i].star_cur = 0;
+					_this.shop_list[i].star_icon = "../../static/star1.png";
+				}
+			}
 		}
 	}
 </script>

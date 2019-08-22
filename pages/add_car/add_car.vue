@@ -76,11 +76,19 @@
 				let fid = this.F_ID;
 				let cnum = this.val;
 				let _this = this;
+				if ( cnum == '' ) {
+					uni.showToast({
+					    title: '车牌号不能为空',
+					    duration: 2000
+					});
+					return;
+				}
 				console.log('输入的车牌号',cnum);
 				api.post('api/Common/EditMemberCarNumber', {F_ID:fid, CarNumber:cnum}).then(res => {
 					console.log(res.data);
 					let code = res.data.code
-					if ( code == 1000 ) {
+					// if ( code == 1000 || code == 1014 ) {
+						if ( code == 1000  ) {
 						uni.showToast({
 						    title: '保存失败',
 						    duration: 2000
@@ -90,7 +98,11 @@
 						    title: '保存成功',
 						    duration: 2000
 						});
-						_this.val = '';
+						setTimeout(function () {
+							wx.navigateBack({
+							  delta:1
+							})
+						}, 2000);
 					}
 				}).catch(err => {
 					

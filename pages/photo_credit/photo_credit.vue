@@ -36,7 +36,7 @@
 				</view>
 			</view>
 		</view>
-		<button type="primary" class="submit_btn credit_btn">确认上传</button>
+		<button type="primary" class="submit_btn credit_btn" @click="onSubmit">确认上传</button>
 		<view class="credit_bottom">
 			<view class="cre_title">温馨提示：</view>
 			<view class="cre_txt">1.请将购物小票清晰、无误地拍照上传，准确填写相应消费记录，工作人员会在7日内进行审核，审核确认前请您保留小票以便核对；</view>
@@ -56,7 +56,8 @@
 				shop_name: "海底捞",
 				consume_price: "489",
 				consume_date: "2019-07-18",
-				photo_list: []
+				photo_list: [],
+				MemberID: ''
 			}
 		},
 		methods:{
@@ -96,7 +97,8 @@
 						// 	});
 						// }
 						uni.hideLoading();
-					}
+					},
+					
 				});
 			},
 			previewImage(e){
@@ -116,9 +118,50 @@
 						}
 					}
 				})
+			},
+			onSubmit() {
+				console.log('shop_name',this.shop_name);
+				console.log('consume_price',this.consume_price);
+				console.log('consume_date',this.consume_date);
+				console.log('photo_list',this.photo_list);
+				// 用户编号
+				let MemberID = this.MemberID;
+				// 消费商家
+				let Business=this.shop_name;
+				// 消费金额
+				let Price = this.consume_price;
+				// 消费日期
+				let ApplyDate = this.consume_date;
+				// 小票图片
+				let ImageUrl = this.photo_list;
+				api.post('api/Common/ApplyIntegralAdd', {MemberID:MemberID,Business:Business,Price:Price,ApplyDate:ApplyDate,ImageUrl:ImageUrl}).then(res => {
+					let code = res.data.code;
+					if ( code == 0 ) {
+						uni.showToast({
+						    title: '提交成功',
+						    duration: 2000
+						});
+						setTimeout(function () {
+							wx.navigateBack({
+							  delta:1
+							})
+						}, 2000);
+					}else {
+						uni.showToast({
+						    title: '提交失败',
+						    duration: 2000
+						});
+					}
+					
+					console.log(res.data);
+				}).catch(err => {
+					
+				})
 			}
 		},
 		onLoad(opt) {
+			console.log('fid',opt.F_ID);
+			this.MemberID = opt.F_ID;
 			api.get('', {}).then(res => {
 				console.log(res.data);
 			}).catch(err => {

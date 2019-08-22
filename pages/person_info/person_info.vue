@@ -144,8 +144,8 @@
 		},
 		onLoad(opt) {
 			console.log(opt);
-			this.OpenID = opt.openId;
-			let OpenID = opt.openId;
+			this.OpenID = opt.OpenID;
+			let OpenID = opt.OpenID;
 			
 			api.get('api/Common/GetMemberInfo', {OpenID: OpenID}).then(res => {
 				let code = res.data.code

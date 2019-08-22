@@ -18,7 +18,7 @@
 			return{
 				card: '加载...',
 				memberName: '加载...',
-				QRCode: '../../static/code.jpg'
+				QRCode: ''
 			}
 		},
 		methods:{

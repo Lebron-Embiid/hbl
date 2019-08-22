@@ -1,9 +1,9 @@
-.photo_credit_view.data-v-3bdb4f6f {
+.photo_credit_view.data-v-764ab02f {
   padding: 40rpx 30rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.photo_credit_view .credit_item.data-v-3bdb4f6f {
+.photo_credit_view .credit_item.data-v-764ab02f {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -20,30 +20,30 @@
     color: #595959;
     font-size: 26rpx;
 }
-.photo_credit_view .credit_item .credit_left.data-v-3bdb4f6f {
+.photo_credit_view .credit_item .credit_left.data-v-764ab02f {
       width: 150rpx;
 }
-.photo_credit_view .credit_item .credit_right.data-v-3bdb4f6f {
+.photo_credit_view .credit_item .credit_right.data-v-764ab02f {
       width: 70%;
       border-radius: 10rpx;
       border: 1px solid #E9E9E9;
       color: #262626;
       font-size: 20rpx;
 }
-.photo_credit_view .credit_item .credit_right.no.data-v-3bdb4f6f {
+.photo_credit_view .credit_item .credit_right.no.data-v-764ab02f {
         border: 0;
 }
-.photo_credit_view .credit_item .credit_right input.data-v-3bdb4f6f {
+.photo_credit_view .credit_item .credit_right input.data-v-764ab02f {
         height: 58rpx;
         font-size: 20rpx;
         padding: 0 20rpx;
         -webkit-box-sizing: border-box;
                 box-sizing: border-box;
 }
-.photo_credit_view .credit_item .credit_right .repair_photo_box.data-v-3bdb4f6f {
+.photo_credit_view .credit_item .credit_right .repair_photo_box.data-v-764ab02f {
         padding: 0;
 }
-.photo_credit_view .credit_item .credit_right .repair_photo_box .add_photo_box .add_btn.data-v-3bdb4f6f {
+.photo_credit_view .credit_item .credit_right .repair_photo_box .add_photo_box .add_btn.data-v-764ab02f {
           -webkit-box-align: center;
           -webkit-align-items: center;
               -ms-flex-align: center;
@@ -53,33 +53,33 @@
                   flex-wrap: wrap;
           padding: 10rpx 0;
 }
-.photo_credit_view .credit_item .credit_right .repair_photo_box .add_photo_box .add_btn image.data-v-3bdb4f6f {
+.photo_credit_view .credit_item .credit_right .repair_photo_box .add_photo_box .add_btn image.data-v-764ab02f {
             display: block;
             width: 57rpx;
             height: 48rpx;
 }
-.photo_credit_view .credit_item .credit_right .repair_photo_box .add_photo_box .add_btn text.data-v-3bdb4f6f {
+.photo_credit_view .credit_item .credit_right .repair_photo_box .add_photo_box .add_btn text.data-v-764ab02f {
             display: block;
             width: 100%;
             text-align: center;
             color: #999;
             font-size: 24rpx;
 }
-.photo_credit_view .credit_btn.data-v-3bdb4f6f {
+.photo_credit_view .credit_btn.data-v-764ab02f {
     background: #adadad;
     margin: 60rpx auto 50rpx;
 }
-.photo_credit_view .credit_bottom.data-v-3bdb4f6f {
+.photo_credit_view .credit_bottom.data-v-764ab02f {
     padding-right: 30rpx;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
 }
-.photo_credit_view .credit_bottom .cre_title.data-v-3bdb4f6f {
+.photo_credit_view .credit_bottom .cre_title.data-v-764ab02f {
       margin-bottom: 15rpx;
       color: #262626;
       font-size: 24rpx;
 }
-.photo_credit_view .credit_bottom .cre_txt.data-v-3bdb4f6f {
+.photo_credit_view .credit_bottom .cre_txt.data-v-764ab02f {
       color: #595959;
       font-size: 18rpx;
       margin-bottom: 10rpx;

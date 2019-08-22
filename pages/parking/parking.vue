@@ -89,16 +89,21 @@
 			},
 			bindSwitch(e){
 				console.log(e.detail.value);
-			}
+			},
 		},
 		onLoad(opt) {
+			console.log(opt);
 			console.log(opt.F_ID);
 			this.F_ID = opt.F_ID;
 			api.get('', {}).then(res => {
 				console.log(res.data);
 			}).catch(err => {
 				
-			})
+			});
+			
+		},
+		onShow() {
+			console.log('被打开了');
 		}
 	}
 </script>
